@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Mike Turley. All rights reserved.
 //
 
-#import "WMUAFirstViewController.h"
+#import "WMUANowPlayingViewController.h"
 
-@interface WMUAFirstViewController ()
+@interface WMUANowPlayingViewController ()
 
 @end
 
-@implementation WMUAFirstViewController
+@implementation WMUANowPlayingViewController
 
 - (void)viewDidLoad
 {

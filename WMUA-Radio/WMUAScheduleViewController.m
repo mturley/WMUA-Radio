@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Mike Turley. All rights reserved.
 //
 
-#import "WMUASecondViewController.h"
+#import "WMUAScheduleViewController.h"
 
-@interface WMUASecondViewController ()
+@interface WMUAScheduleViewController ()
 
 @end
 
-@implementation WMUASecondViewController
+@implementation WMUAScheduleViewController
 
 - (void)viewDidLoad
 {

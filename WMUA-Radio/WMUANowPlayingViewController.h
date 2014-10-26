@@ -1,5 +1,5 @@
 //
-//  WMUASecondViewController.h
+//  WMUAFirstViewController.h
 //  WMUA-Radio
 //
 //  Created by Mike Turley on 10/26/14.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WMUASecondViewController : UIViewController
+@interface WMUANowPlayingViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 @end

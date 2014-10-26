@@ -14,8 +14,8 @@
 		0855986919FD850D0089C8FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855986819FD850D0089C8FE /* main.m */; };
 		0855986D19FD850D0089C8FE /* WMUAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855986C19FD850D0089C8FE /* WMUAAppDelegate.m */; };
 		0855987019FD850D0089C8FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0855986E19FD850D0089C8FE /* Main.storyboard */; };
-		0855987319FD850D0089C8FE /* WMUAFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855987219FD850D0089C8FE /* WMUAFirstViewController.m */; };
-		0855987619FD850D0089C8FE /* WMUASecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855987519FD850D0089C8FE /* WMUASecondViewController.m */; };
+		0855987319FD850D0089C8FE /* WMUANowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855987219FD850D0089C8FE /* WMUANowPlayingViewController.m */; };
+		0855987619FD850D0089C8FE /* WMUAScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855987519FD850D0089C8FE /* WMUAScheduleViewController.m */; };
 		0855987819FD850D0089C8FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0855987719FD850D0089C8FE /* Images.xcassets */; };
 		0855987F19FD850D0089C8FE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855987E19FD850D0089C8FE /* XCTest.framework */; };
 		0855988019FD850D0089C8FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855985C19FD850C0089C8FE /* Foundation.framework */; };
@@ -46,10 +46,10 @@
 		0855986B19FD850D0089C8FE /* WMUAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMUAAppDelegate.h; sourceTree = "<group>"; };
 		0855986C19FD850D0089C8FE /* WMUAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMUAAppDelegate.m; sourceTree = "<group>"; };
 		0855986F19FD850D0089C8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0855987119FD850D0089C8FE /* WMUAFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMUAFirstViewController.h; sourceTree = "<group>"; };
-		0855987219FD850D0089C8FE /* WMUAFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMUAFirstViewController.m; sourceTree = "<group>"; };
-		0855987419FD850D0089C8FE /* WMUASecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMUASecondViewController.h; sourceTree = "<group>"; };
-		0855987519FD850D0089C8FE /* WMUASecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMUASecondViewController.m; sourceTree = "<group>"; };
+		0855987119FD850D0089C8FE /* WMUANowPlayingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMUANowPlayingViewController.h; sourceTree = "<group>"; };
+		0855987219FD850D0089C8FE /* WMUANowPlayingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMUANowPlayingViewController.m; sourceTree = "<group>"; };
+		0855987419FD850D0089C8FE /* WMUAScheduleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMUAScheduleViewController.h; sourceTree = "<group>"; };
+		0855987519FD850D0089C8FE /* WMUAScheduleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMUAScheduleViewController.m; sourceTree = "<group>"; };
 		0855987719FD850D0089C8FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0855987D19FD850D0089C8FE /* WMUA-RadioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WMUA-RadioTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0855987E19FD850D0089C8FE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -118,10 +118,10 @@
 				0855986B19FD850D0089C8FE /* WMUAAppDelegate.h */,
 				0855986C19FD850D0089C8FE /* WMUAAppDelegate.m */,
 				0855986E19FD850D0089C8FE /* Main.storyboard */,
-				0855987119FD850D0089C8FE /* WMUAFirstViewController.h */,
-				0855987219FD850D0089C8FE /* WMUAFirstViewController.m */,
-				0855987419FD850D0089C8FE /* WMUASecondViewController.h */,
-				0855987519FD850D0089C8FE /* WMUASecondViewController.m */,
+				0855987119FD850D0089C8FE /* WMUANowPlayingViewController.h */,
+				0855987219FD850D0089C8FE /* WMUANowPlayingViewController.m */,
+				0855987419FD850D0089C8FE /* WMUAScheduleViewController.h */,
+				0855987519FD850D0089C8FE /* WMUAScheduleViewController.m */,
 				0855987719FD850D0089C8FE /* Images.xcassets */,
 				0855986319FD850C0089C8FE /* Supporting Files */,
 			);
@@ -257,8 +257,8 @@
 			files = (
 				0855986D19FD850D0089C8FE /* WMUAAppDelegate.m in Sources */,
 				0855986919FD850D0089C8FE /* main.m in Sources */,
-				0855987619FD850D0089C8FE /* WMUASecondViewController.m in Sources */,
-				0855987319FD850D0089C8FE /* WMUAFirstViewController.m in Sources */,
+				0855987619FD850D0089C8FE /* WMUAScheduleViewController.m in Sources */,
+				0855987319FD850D0089C8FE /* WMUANowPlayingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

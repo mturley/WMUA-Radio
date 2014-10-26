@@ -1,5 +1,5 @@
 //
-//  WMUAFirstViewController.h
+//  WMUASecondViewController.h
 //  WMUA-Radio
 //
 //  Created by Mike Turley on 10/26/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WMUAFirstViewController : UIViewController
+@interface WMUAScheduleViewController : UIViewController
 
 @end
