@@ -1,0 +1,478 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0855985D19FD850C0089C8FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855985C19FD850C0089C8FE /* Foundation.framework */; };
+		0855985F19FD850C0089C8FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855985E19FD850C0089C8FE /* CoreGraphics.framework */; };
+		0855986119FD850C0089C8FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855986019FD850C0089C8FE /* UIKit.framework */; };
+		0855986719FD850C0089C8FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0855986519FD850C0089C8FE /* InfoPlist.strings */; };
+		0855986919FD850D0089C8FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855986819FD850D0089C8FE /* main.m */; };
+		0855986D19FD850D0089C8FE /* WMUAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855986C19FD850D0089C8FE /* WMUAAppDelegate.m */; };
+		0855987019FD850D0089C8FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0855986E19FD850D0089C8FE /* Main.storyboard */; };
+		0855987319FD850D0089C8FE /* WMUAFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855987219FD850D0089C8FE /* WMUAFirstViewController.m */; };
+		0855987619FD850D0089C8FE /* WMUASecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855987519FD850D0089C8FE /* WMUASecondViewController.m */; };
+		0855987819FD850D0089C8FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0855987719FD850D0089C8FE /* Images.xcassets */; };
+		0855987F19FD850D0089C8FE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855987E19FD850D0089C8FE /* XCTest.framework */; };
+		0855988019FD850D0089C8FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855985C19FD850C0089C8FE /* Foundation.framework */; };
+		0855988119FD850D0089C8FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855986019FD850C0089C8FE /* UIKit.framework */; };
+		0855988919FD850D0089C8FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0855988719FD850D0089C8FE /* InfoPlist.strings */; };
+		0855988B19FD850D0089C8FE /* WMUA_RadioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855988A19FD850D0089C8FE /* WMUA_RadioTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0855988219FD850D0089C8FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0855985119FD850C0089C8FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0855985819FD850C0089C8FE;
+			remoteInfo = "WMUA-Radio";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0855985919FD850C0089C8FE /* WMUA-Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WMUA-Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0855985C19FD850C0089C8FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0855985E19FD850C0089C8FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0855986019FD850C0089C8FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0855986419FD850C0089C8FE /* WMUA-Radio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WMUA-Radio-Info.plist"; sourceTree = "<group>"; };
+		0855986619FD850C0089C8FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0855986819FD850D0089C8FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0855986A19FD850D0089C8FE /* WMUA-Radio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WMUA-Radio-Prefix.pch"; sourceTree = "<group>"; };
+		0855986B19FD850D0089C8FE /* WMUAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMUAAppDelegate.h; sourceTree = "<group>"; };
+		0855986C19FD850D0089C8FE /* WMUAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMUAAppDelegate.m; sourceTree = "<group>"; };
+		0855986F19FD850D0089C8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0855987119FD850D0089C8FE /* WMUAFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMUAFirstViewController.h; sourceTree = "<group>"; };
+		0855987219FD850D0089C8FE /* WMUAFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMUAFirstViewController.m; sourceTree = "<group>"; };
+		0855987419FD850D0089C8FE /* WMUASecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMUASecondViewController.h; sourceTree = "<group>"; };
+		0855987519FD850D0089C8FE /* WMUASecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMUASecondViewController.m; sourceTree = "<group>"; };
+		0855987719FD850D0089C8FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0855987D19FD850D0089C8FE /* WMUA-RadioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WMUA-RadioTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0855987E19FD850D0089C8FE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0855988619FD850D0089C8FE /* WMUA-RadioTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WMUA-RadioTests-Info.plist"; sourceTree = "<group>"; };
+		0855988819FD850D0089C8FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0855988A19FD850D0089C8FE /* WMUA_RadioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMUA_RadioTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0855985619FD850C0089C8FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0855985F19FD850C0089C8FE /* CoreGraphics.framework in Frameworks */,
+				0855986119FD850C0089C8FE /* UIKit.framework in Frameworks */,
+				0855985D19FD850C0089C8FE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0855987A19FD850D0089C8FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0855987F19FD850D0089C8FE /* XCTest.framework in Frameworks */,
+				0855988119FD850D0089C8FE /* UIKit.framework in Frameworks */,
+				0855988019FD850D0089C8FE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0855985019FD850C0089C8FE = {
+			isa = PBXGroup;
+			children = (
+				0855986219FD850C0089C8FE /* WMUA-Radio */,
+				0855988419FD850D0089C8FE /* WMUA-RadioTests */,
+				0855985B19FD850C0089C8FE /* Frameworks */,
+				0855985A19FD850C0089C8FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0855985A19FD850C0089C8FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0855985919FD850C0089C8FE /* WMUA-Radio.app */,
+				0855987D19FD850D0089C8FE /* WMUA-RadioTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0855985B19FD850C0089C8FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0855985C19FD850C0089C8FE /* Foundation.framework */,
+				0855985E19FD850C0089C8FE /* CoreGraphics.framework */,
+				0855986019FD850C0089C8FE /* UIKit.framework */,
+				0855987E19FD850D0089C8FE /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0855986219FD850C0089C8FE /* WMUA-Radio */ = {
+			isa = PBXGroup;
+			children = (
+				0855986B19FD850D0089C8FE /* WMUAAppDelegate.h */,
+				0855986C19FD850D0089C8FE /* WMUAAppDelegate.m */,
+				0855986E19FD850D0089C8FE /* Main.storyboard */,
+				0855987119FD850D0089C8FE /* WMUAFirstViewController.h */,
+				0855987219FD850D0089C8FE /* WMUAFirstViewController.m */,
+				0855987419FD850D0089C8FE /* WMUASecondViewController.h */,
+				0855987519FD850D0089C8FE /* WMUASecondViewController.m */,
+				0855987719FD850D0089C8FE /* Images.xcassets */,
+				0855986319FD850C0089C8FE /* Supporting Files */,
+			);
+			path = "WMUA-Radio";
+			sourceTree = "<group>";
+		};
+		0855986319FD850C0089C8FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0855986419FD850C0089C8FE /* WMUA-Radio-Info.plist */,
+				0855986519FD850C0089C8FE /* InfoPlist.strings */,
+				0855986819FD850D0089C8FE /* main.m */,
+				0855986A19FD850D0089C8FE /* WMUA-Radio-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0855988419FD850D0089C8FE /* WMUA-RadioTests */ = {
+			isa = PBXGroup;
+			children = (
+				0855988A19FD850D0089C8FE /* WMUA_RadioTests.m */,
+				0855988519FD850D0089C8FE /* Supporting Files */,
+			);
+			path = "WMUA-RadioTests";
+			sourceTree = "<group>";
+		};
+		0855988519FD850D0089C8FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0855988619FD850D0089C8FE /* WMUA-RadioTests-Info.plist */,
+				0855988719FD850D0089C8FE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0855985819FD850C0089C8FE /* WMUA-Radio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0855988E19FD850D0089C8FE /* Build configuration list for PBXNativeTarget "WMUA-Radio" */;
+			buildPhases = (
+				0855985519FD850C0089C8FE /* Sources */,
+				0855985619FD850C0089C8FE /* Frameworks */,
+				0855985719FD850C0089C8FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WMUA-Radio";
+			productName = "WMUA-Radio";
+			productReference = 0855985919FD850C0089C8FE /* WMUA-Radio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0855987C19FD850D0089C8FE /* WMUA-RadioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0855989119FD850D0089C8FE /* Build configuration list for PBXNativeTarget "WMUA-RadioTests" */;
+			buildPhases = (
+				0855987919FD850D0089C8FE /* Sources */,
+				0855987A19FD850D0089C8FE /* Frameworks */,
+				0855987B19FD850D0089C8FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0855988319FD850D0089C8FE /* PBXTargetDependency */,
+			);
+			name = "WMUA-RadioTests";
+			productName = "WMUA-RadioTests";
+			productReference = 0855987D19FD850D0089C8FE /* WMUA-RadioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0855985119FD850C0089C8FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WMUA;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Mike Turley";
+				TargetAttributes = {
+					0855987C19FD850D0089C8FE = {
+						TestTargetID = 0855985819FD850C0089C8FE;
+					};
+				};
+			};
+			buildConfigurationList = 0855985419FD850C0089C8FE /* Build configuration list for PBXProject "WMUA-Radio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0855985019FD850C0089C8FE;
+			productRefGroup = 0855985A19FD850C0089C8FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0855985819FD850C0089C8FE /* WMUA-Radio */,
+				0855987C19FD850D0089C8FE /* WMUA-RadioTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0855985719FD850C0089C8FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0855987819FD850D0089C8FE /* Images.xcassets in Resources */,
+				0855986719FD850C0089C8FE /* InfoPlist.strings in Resources */,
+				0855987019FD850D0089C8FE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0855987B19FD850D0089C8FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0855988919FD850D0089C8FE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0855985519FD850C0089C8FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0855986D19FD850D0089C8FE /* WMUAAppDelegate.m in Sources */,
+				0855986919FD850D0089C8FE /* main.m in Sources */,
+				0855987619FD850D0089C8FE /* WMUASecondViewController.m in Sources */,
+				0855987319FD850D0089C8FE /* WMUAFirstViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0855987919FD850D0089C8FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0855988B19FD850D0089C8FE /* WMUA_RadioTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0855988319FD850D0089C8FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0855985819FD850C0089C8FE /* WMUA-Radio */;
+			targetProxy = 0855988219FD850D0089C8FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0855986519FD850C0089C8FE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0855986619FD850C0089C8FE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0855986E19FD850D0089C8FE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0855986F19FD850D0089C8FE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0855988719FD850D0089C8FE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0855988819FD850D0089C8FE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0855988C19FD850D0089C8FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0855988D19FD850D0089C8FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0855988F19FD850D0089C8FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WMUA-Radio/WMUA-Radio-Prefix.pch";
+				INFOPLIST_FILE = "WMUA-Radio/WMUA-Radio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0855989019FD850D0089C8FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WMUA-Radio/WMUA-Radio-Prefix.pch";
+				INFOPLIST_FILE = "WMUA-Radio/WMUA-Radio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		0855989219FD850D0089C8FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WMUA-Radio.app/WMUA-Radio";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WMUA-Radio/WMUA-Radio-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "WMUA-RadioTests/WMUA-RadioTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		0855989319FD850D0089C8FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WMUA-Radio.app/WMUA-Radio";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WMUA-Radio/WMUA-Radio-Prefix.pch";
+				INFOPLIST_FILE = "WMUA-RadioTests/WMUA-RadioTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0855985419FD850C0089C8FE /* Build configuration list for PBXProject "WMUA-Radio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0855988C19FD850D0089C8FE /* Debug */,
+				0855988D19FD850D0089C8FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0855988E19FD850D0089C8FE /* Build configuration list for PBXNativeTarget "WMUA-Radio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0855988F19FD850D0089C8FE /* Debug */,
+				0855989019FD850D0089C8FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0855989119FD850D0089C8FE /* Build configuration list for PBXNativeTarget "WMUA-RadioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0855989219FD850D0089C8FE /* Debug */,
+				0855989319FD850D0089C8FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0855985119FD850C0089C8FE /* Project object */;
+}
