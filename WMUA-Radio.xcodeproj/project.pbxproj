@@ -22,6 +22,10 @@
 		0855988119FD850D0089C8FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855986019FD850C0089C8FE /* UIKit.framework */; };
 		0855988919FD850D0089C8FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0855988719FD850D0089C8FE /* InfoPlist.strings */; };
 		0855988B19FD850D0089C8FE /* WMUA_RadioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855988A19FD850D0089C8FE /* WMUA_RadioTests.m */; };
+		085598A319FD9CC00089C8FE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0855989C19FD9CC00089C8FE /* LICENSE */; };
+		085598A419FD9CC00089C8FE /* Packet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855989E19FD9CC00089C8FE /* Packet.m */; };
+		085598A519FD9CC00089C8FE /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 085598A019FD9CC00089C8FE /* Queue.m */; };
+		085598A619FD9CC00089C8FE /* Radio.m in Sources */ = {isa = PBXBuildFile; fileRef = 085598A219FD9CC00089C8FE /* Radio.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,13 @@
 		0855988619FD850D0089C8FE /* WMUA-RadioTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WMUA-RadioTests-Info.plist"; sourceTree = "<group>"; };
 		0855988819FD850D0089C8FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0855988A19FD850D0089C8FE /* WMUA_RadioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMUA_RadioTests.m; sourceTree = "<group>"; };
+		0855989C19FD9CC00089C8FE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		0855989D19FD9CC00089C8FE /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Packet.h; sourceTree = "<group>"; };
+		0855989E19FD9CC00089C8FE /* Packet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Packet.m; sourceTree = "<group>"; };
+		0855989F19FD9CC00089C8FE /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		085598A019FD9CC00089C8FE /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
+		085598A119FD9CC00089C8FE /* Radio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Radio.h; sourceTree = "<group>"; };
+		085598A219FD9CC00089C8FE /* Radio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Radio.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				0855986219FD850C0089C8FE /* WMUA-Radio */,
+				0855989B19FD9CC00089C8FE /* Radio */,
 				0855988419FD850D0089C8FE /* WMUA-RadioTests */,
-				0855985B19FD850C0089C8FE /* Frameworks */,
 				0855985A19FD850C0089C8FE /* Products */,
+				0855985B19FD850C0089C8FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,6 +167,20 @@
 				0855988719FD850D0089C8FE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0855989B19FD9CC00089C8FE /* Radio */ = {
+			isa = PBXGroup;
+			children = (
+				0855989C19FD9CC00089C8FE /* LICENSE */,
+				0855989D19FD9CC00089C8FE /* Packet.h */,
+				0855989E19FD9CC00089C8FE /* Packet.m */,
+				0855989F19FD9CC00089C8FE /* Queue.h */,
+				085598A019FD9CC00089C8FE /* Queue.m */,
+				085598A119FD9CC00089C8FE /* Radio.h */,
+				085598A219FD9CC00089C8FE /* Radio.m */,
+			);
+			path = Radio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +262,7 @@
 			files = (
 				0855987819FD850D0089C8FE /* Images.xcassets in Resources */,
 				0855986719FD850C0089C8FE /* InfoPlist.strings in Resources */,
+				085598A319FD9CC00089C8FE /* LICENSE in Resources */,
 				0855987019FD850D0089C8FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,8 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				085598A419FD9CC00089C8FE /* Packet.m in Sources */,
+				085598A619FD9CC00089C8FE /* Radio.m in Sources */,
 				0855986D19FD850D0089C8FE /* WMUAAppDelegate.m in Sources */,
 				0855986919FD850D0089C8FE /* main.m in Sources */,
+				085598A519FD9CC00089C8FE /* Queue.m in Sources */,
 				0855987619FD850D0089C8FE /* WMUAScheduleViewController.m in Sources */,
 				0855987319FD850D0089C8FE /* WMUANowPlayingViewController.m in Sources */,
 			);
