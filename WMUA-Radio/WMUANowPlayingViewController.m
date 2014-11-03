@@ -27,7 +27,7 @@
     _playButton.layer.borderWidth = 0.5f;
     _playButton.layer.borderColor = [_playButton tintColor].CGColor;
     
-    // Allocate, connect, and start the Radio streamer class.
+    // Allocate, connect, and start the Radio streamer.
     radio = [[Radio alloc] init];
     [radio connect:STREAM_URL withDelegate:self withGain:(1.0)];
     [self startRadio];
@@ -44,32 +44,18 @@
 
 - (void)startRadio
 {
-    // Start the background task so playback continues over lockscreen and other apps
-    // TODO: replace with proper AudioSession?  See docs
-    bgTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
-    
-    // Start the stream
     playing = YES;
     buffering = NO;
     [radio updatePlay:YES];
-    
-    // Update the view
     [self updatePlayerUI];
 }
 
 - (void)stopRadio
 {
-    // Stop the stream
     playing = NO;
+    buffering = NO;
     [radio updatePlay:NO];
-    
-    // Update the view
     [self updatePlayerUI];
-    
-    // End the background task so the application can be removed from memory properly
-    if (bgTaskID != UIBackgroundTaskInvalid) {
-        [[UIApplication sharedApplication] endBackgroundTask:bgTaskID];
-    }
 }
 
 - (IBAction)toggleRadio:(id)sender {
@@ -95,10 +81,14 @@
 
 - (void)interruptRadio {
     NSLog(@"delegate radio interrupted");
+    playing = NO;
+    [self updatePlayerUI];
 }
 
 - (void)resumeInterruptedRadio {
     NSLog(@"delegate resume interrupted radio");
+    playing = YES;
+    [self updatePlayerUI];
 }
 
 - (void)networkChanged {
@@ -107,6 +97,10 @@
 
 - (void)connectProblem {
     NSLog(@"delegate connection problem");
+    playing = NO;
+    buffering = NO;
+    [self updatePlayerUI];
+    [self alert:@"Connection Problem" withMessage:@"We can't seem to connect you to the WMUA audio stream. Please make sure your device is connected to the internet and try again."];
 }
 
 - (void)audioUnplugged {
@@ -117,21 +111,28 @@
 #pragma mark UI Helper Methods
 - (void)updatePlayerUI {
     if(playing) {
+        // Begin a background task so that playback can continue when user leaves this view.
+        bgTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
         if(buffering) {
-            [_statusLabel setText:@"Buffering..."];
             [_bufferingIndicator startAnimating];
+            [_statusLabel setText:@"Buffering..."];
         } else {
-            [_statusLabel setText:@"Streaming Live"];
             [_bufferingIndicator stopAnimating];
+            [_statusLabel setText:@"Streaming Live"];
         }
         [_playButton setTitle:@"Stop" forState:UIControlStateNormal];
         UIImage *stopIcon = [[UIImage imageNamed:@"stop"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [_playButton setImage:stopIcon forState:UIControlStateNormal];
     } else {
+        [_bufferingIndicator stopAnimating];
         [_statusLabel setText:@"Stopped"];
         [_playButton setTitle:@"Listen Live" forState:UIControlStateNormal];
         UIImage *playIcon = [[UIImage imageNamed:@"play"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [_playButton setImage:playIcon forState:UIControlStateNormal];
+        // End the background task so the application can be removed from memory properly
+        if (bgTaskID != UIBackgroundTaskInvalid) {
+            [[UIApplication sharedApplication] endBackgroundTask:bgTaskID];
+        }
     }
 }
 
