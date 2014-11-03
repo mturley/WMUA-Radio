@@ -18,6 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ph-52-aUb">
+                                <rect key="frame" x="164" y="98" width="140" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Listen Live" image="play">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleRadio:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="eq5-9U-JIq"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stopped" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hz-vt-np9">
                                 <rect key="frame" x="16" y="98" width="128" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -30,16 +40,9 @@
                                     <constraint firstAttribute="height" constant="70" id="2Md-4m-iuR"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ph-52-aUb">
-                                <rect key="frame" x="164" y="98" width="140" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Listen Live" image="play">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleRadio:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="eq5-9U-JIq"/>
-                                </connections>
-                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1bg-L8-e0y">
+                                <rect key="frame" x="136" y="112" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -50,6 +53,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Now Playing" image="headphones" id="u1e-5L-l1D"/>
                     <connections>
+                        <outlet property="bufferingIndicator" destination="1bg-L8-e0y" id="Uxh-yU-aX2"/>
                         <outlet property="playButton" destination="9Ph-52-aUb" id="jr4-gq-mX8"/>
                         <outlet property="statusLabel" destination="6Hz-vt-np9" id="D7I-mq-eqc"/>
                     </connections>

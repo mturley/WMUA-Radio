@@ -119,8 +119,10 @@
     if(playing) {
         if(buffering) {
             [_statusLabel setText:@"Buffering..."];
+            [_bufferingIndicator startAnimating];
         } else {
             [_statusLabel setText:@"Streaming Live"];
+            [_bufferingIndicator stopAnimating];
         }
         [_playButton setTitle:@"Stop" forState:UIControlStateNormal];
         UIImage *stopIcon = [[UIImage imageNamed:@"stop"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
