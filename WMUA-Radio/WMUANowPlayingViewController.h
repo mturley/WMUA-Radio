@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Radio.h"
 
-@interface WMUANowPlayingViewController : UIViewController
+@interface WMUANowPlayingViewController : UIViewController <RadioDelegate> {
+    Radio *radio;
+    BOOL playing;
+    UIBackgroundTaskIdentifier bgTaskID;
+}
+
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
-
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+    
 @end

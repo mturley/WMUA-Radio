@@ -231,6 +231,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Mike Turley";
 				TargetAttributes = {
+					0855985819FD850C0089C8FE = {
+						DevelopmentTeam = Y6JY4Y23L4;
+					};
 					0855987C19FD850D0089C8FE = {
 						TestTargetID = 0855985819FD850C0089C8FE;
 					};
@@ -413,10 +416,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WMUA-Radio/WMUA-Radio-Prefix.pch";
 				INFOPLIST_FILE = "WMUA-Radio/WMUA-Radio-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -426,10 +432,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WMUA-Radio/WMUA-Radio-Prefix.pch";
 				INFOPLIST_FILE = "WMUA-Radio/WMUA-Radio-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -493,6 +502,7 @@
 				0855989019FD850D0089C8FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0855989119FD850D0089C8FE /* Build configuration list for PBXNativeTarget "WMUA-RadioTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +511,7 @@
 				0855989319FD850D0089C8FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
