@@ -12,6 +12,7 @@
 @interface WMUANowPlayingViewController : UIViewController <RadioDelegate> {
     Radio *radio;
     BOOL playing;
+    BOOL buffering;
     UIBackgroundTaskIdentifier bgTaskID;
 }
 

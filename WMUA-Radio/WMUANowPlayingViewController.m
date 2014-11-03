@@ -19,6 +19,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    playing = NO;
+    buffering = NO;
     
     // Tweaks to the UI that were unavailable in Interface Builder
     _playButton.layer.cornerRadius = 10;
@@ -48,13 +50,11 @@
     
     // Start the stream
     playing = YES;
+    buffering = NO;
     [radio updatePlay:YES];
     
     // Update the view
-    [_statusLabel setText:@"Streaming Live"];
-    [_playButton setTitle:@"Stop" forState:UIControlStateNormal];
-    UIImage *stopIcon = [[UIImage imageNamed:@"stop"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [_playButton setImage:stopIcon forState:UIControlStateNormal];
+    [self updatePlayerUI];
 }
 
 - (void)stopRadio
@@ -64,10 +64,7 @@
     [radio updatePlay:NO];
     
     // Update the view
-    [_statusLabel setText:@"Stopped"];
-    [_playButton setTitle:@"Listen Live" forState:UIControlStateNormal];
-    UIImage *playIcon = [[UIImage imageNamed:@"play"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [_playButton setImage:playIcon forState:UIControlStateNormal];
+    [self updatePlayerUI];
     
     // End the background task so the application can be removed from memory properly
     if (bgTaskID != UIBackgroundTaskInvalid) {
@@ -88,6 +85,12 @@
 
 - (void)updateBuffering:(BOOL)value {
     NSLog(@"delegate update buffering %d", value);
+    if(value) {
+        buffering = YES;
+    } else {
+        buffering = NO;
+    }
+    [self updatePlayerUI];
 }
 
 - (void)interruptRadio {
@@ -108,6 +111,37 @@
 
 - (void)audioUnplugged {
     NSLog(@"delegate audio unplugged");
+}
+
+#pragma mark -
+#pragma mark UI Helper Methods
+- (void)updatePlayerUI {
+    if(playing) {
+        if(buffering) {
+            [_statusLabel setText:@"Buffering..."];
+        } else {
+            [_statusLabel setText:@"Streaming Live"];
+        }
+        [_playButton setTitle:@"Stop" forState:UIControlStateNormal];
+        UIImage *stopIcon = [[UIImage imageNamed:@"stop"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [_playButton setImage:stopIcon forState:UIControlStateNormal];
+    } else {
+        [_statusLabel setText:@"Stopped"];
+        [_playButton setTitle:@"Listen Live" forState:UIControlStateNormal];
+        UIImage *playIcon = [[UIImage imageNamed:@"play"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [_playButton setImage:playIcon forState:UIControlStateNormal];
+    }
+}
+
+- (void)alert:(NSString *)title withMessage:(NSString *)message
+{
+    // TODO deal with the UIAlertView deprecation in iOS 8?
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end
