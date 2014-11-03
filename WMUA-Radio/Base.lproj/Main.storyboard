@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--First-->
@@ -17,33 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="WMUA 91.1FM" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-ve-WU7">
-                                <rect key="frame" x="20" y="20" width="280" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ph-52-aUb">
-                                <rect key="frame" x="148" y="70" width="156" height="49"/>
-                                <state key="normal" title="Listen Live Now"/>
-                                <connections>
-                                    <action selector="toggleRadio:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="eq5-9U-JIq"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stopped" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hz-vt-np9">
-                                <rect key="frame" x="16" y="83" width="124" height="21"/>
+                                <rect key="frame" x="16" y="98" width="128" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wmuabanner.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="kE7-pB-3qm">
+                                <rect key="frame" x="16" y="20" width="288" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="2Md-4m-iuR"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ph-52-aUb">
+                                <rect key="frame" x="164" y="98" width="140" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Listen Live" image="play">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleRadio:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="eq5-9U-JIq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Zhg-ve-WU7" firstAttribute="top" secondItem="s9W-kb-ARv" secondAttribute="bottom" id="3rE-TG-rhJ"/>
+                            <constraint firstItem="kE7-pB-3qm" firstAttribute="trailing" secondItem="2VE-Yg-loa" secondAttribute="trailingMargin" id="R63-he-O8M"/>
+                            <constraint firstItem="kE7-pB-3qm" firstAttribute="top" secondItem="s9W-kb-ARv" secondAttribute="bottom" id="mIh-cZ-PLX"/>
+                            <constraint firstItem="kE7-pB-3qm" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leadingMargin" id="ohk-Pg-ek5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Now Playing" image="first" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="headphones" id="u1e-5L-l1D"/>
                     <connections>
                         <outlet property="playButton" destination="9Ph-52-aUb" id="jr4-gq-mX8"/>
                         <outlet property="statusLabel" destination="6Hz-vt-np9" id="D7I-mq-eqc"/>
@@ -106,8 +111,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="headphones" width="32" height="32"/>
+        <image name="play" width="32" height="32"/>
         <image name="second" width="30" height="30"/>
+        <image name="wmuabanner.jpg" width="840" height="195"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

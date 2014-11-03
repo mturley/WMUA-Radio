@@ -53,6 +53,8 @@
     // Update the view
     [_statusLabel setText:@"Streaming Live"];
     [_playButton setTitle:@"Stop" forState:UIControlStateNormal];
+    UIImage *stopIcon = [[UIImage imageNamed:@"stop"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [_playButton setImage:stopIcon forState:UIControlStateNormal];
 }
 
 - (void)stopRadio
@@ -63,7 +65,9 @@
     
     // Update the view
     [_statusLabel setText:@"Stopped"];
-    [_playButton setTitle:@"Listen Live Now" forState:UIControlStateNormal];
+    [_playButton setTitle:@"Listen Live" forState:UIControlStateNormal];
+    UIImage *playIcon = [[UIImage imageNamed:@"play"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [_playButton setImage:playIcon forState:UIControlStateNormal];
     
     // End the background task so the application can be removed from memory properly
     if (bgTaskID != UIBackgroundTaskInvalid) {

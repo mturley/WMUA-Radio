@@ -26,6 +26,7 @@
 		085598A419FD9CC00089C8FE /* Packet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855989E19FD9CC00089C8FE /* Packet.m */; };
 		085598A519FD9CC00089C8FE /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 085598A019FD9CC00089C8FE /* Queue.m */; };
 		085598A619FD9CC00089C8FE /* Radio.m in Sources */ = {isa = PBXBuildFile; fileRef = 085598A219FD9CC00089C8FE /* Radio.m */; };
+		08A4600F1A07FED7005CF34B /* wmuabanner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 08A4600E1A07FED7005CF34B /* wmuabanner.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		085598A019FD9CC00089C8FE /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 		085598A119FD9CC00089C8FE /* Radio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Radio.h; sourceTree = "<group>"; };
 		085598A219FD9CC00089C8FE /* Radio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Radio.m; sourceTree = "<group>"; };
+		08A4600E1A07FED7005CF34B /* wmuabanner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wmuabanner.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		0855986319FD850C0089C8FE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				08A4600E1A07FED7005CF34B /* wmuabanner.jpg */,
 				0855986419FD850C0089C8FE /* WMUA-Radio-Info.plist */,
 				0855986519FD850C0089C8FE /* InfoPlist.strings */,
 				0855986819FD850D0089C8FE /* main.m */,
@@ -263,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08A4600F1A07FED7005CF34B /* wmuabanner.jpg in Resources */,
 				0855987819FD850D0089C8FE /* Images.xcassets in Resources */,
 				0855986719FD850C0089C8FE /* InfoPlist.strings in Resources */,
 				085598A319FD9CC00089C8FE /* LICENSE in Resources */,
