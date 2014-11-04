@@ -7,6 +7,7 @@
 //
 
 #import "WMUANowPlayingViewController.h"
+#import "WMUATrackTableViewCell.h"
 #import "XMLDictionary.h"
 
 #define STREAM_URL @"http://ice7.securenetsystems.net/WMUA"
@@ -35,6 +36,14 @@
     radio = [[Radio alloc] init];
     [radio connect:STREAM_URL withDelegate:self withGain:(1.0)];
     [self startRadio];
+    
+    // Asynchronously load "Now Airing" data and display it.
+    [self refreshNowAiring];
+    
+    // Asychronously load "Recent Plays" data and display it.
+    UINib *cellNib = [UINib nibWithNibName:@"WMUATrackTableViewCell" bundle:nil];
+    [self.recentPlaysTable registerNib:cellNib forCellReuseIdentifier:@"TrackCell"];
+    [self refreshRecentPlays];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,15 +138,6 @@
                            }];
 }
 
-- (IBAction)testXml:(id)sender{
-    [self getDictFromXmlUrl:XML_LAST10_URL withSuccessHandler:^(NSDictionary *dict) {
-        NSLog(@"PARSED DATA KEYS:");
-        NSLog(@"%@", dict[@"channel"][@"item"]);
-    } withErrorHandler:^(NSError *error) {
-        NSLog(@"ERROR FETCHING XML FILE!");
-    }];
-}
-
 #pragma mark -
 #pragma mark UI Helper Methods
 - (void)updatePlayerUI {
@@ -167,6 +167,42 @@
     }
 }
 
+- (IBAction)refreshNowAiring:(id)sender {
+    [self refreshNowAiring];
+}
+
+- (void)refreshNowAiring {
+    [_airingShowLabel setText:@"Loading..."];
+    [_airingDJLabel setText:@"Loading..."];
+    [_airingScheduleLabel setText:@"Loading..."];
+    [self getDictFromXmlUrl:XML_SHOWONAIR_URL withSuccessHandler:^(NSDictionary *dict) {
+        NSDictionary *showDict = dict[@"channel"][@"item"];
+        [_airingShowLabel setText:showDict[@"ra:showname"]];
+        [_airingDJLabel setText:[showDict[@"ra:showdj"] componentsJoinedByString:@", "]];
+        [_airingScheduleLabel setText:showDict[@"ra:showschedule"]];
+    } withErrorHandler:^(NSError *error) {
+        NSLog(@"ERROR FETCHING XML FILE!");
+        [_airingShowLabel setText:@"(No Data Available)"];
+        [_airingDJLabel setText:@"(No Data Available)"];
+        [_airingScheduleLabel setText:@"(No Data Available)"];
+    }];
+}
+
+- (IBAction)refreshRecentPlays:(id)sender {
+    [self refreshRecentPlays];
+}
+
+- (void)refreshRecentPlays {
+    recentPlays = [[NSArray alloc] init];
+    [self.recentPlaysTable reloadData];
+    [self getDictFromXmlUrl:XML_LAST10_URL withSuccessHandler:^(NSDictionary *dict) {
+        recentPlays = dict[@"channel"][@"item"];
+        [self.recentPlaysTable reloadData];
+    } withErrorHandler:^(NSError *error) {
+        NSLog(@"ERROR FETCHING XML FILE!");
+    }];
+}
+
 - (void)alert:(NSString *)title withMessage:(NSString *)message
 {
     // TODO deal with the UIAlertView deprecation in iOS 8?
@@ -176,6 +212,40 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+# pragma mark -
+# pragma mark Recent Plays Table View Methods
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WMUATrackTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrackCell"];
+    // Initialize the cell if it has not yet been created
+    if(!cell) {
+        cell = [[WMUATrackTableViewCell alloc] init];
+    }
+    NSDictionary *trackDict = [recentPlays objectAtIndex:indexPath.row];
+    [cell.playNumLabel setText:trackDict[@"title"]];
+    [cell.timeLabel setText:trackDict[@"ra:time"]];
+    [cell.trackLabel setText:trackDict[@"ra:track"]];
+    [cell.artistLabel setText:trackDict[@"ra:artist"]];
+    [cell.albumLabel setText:trackDict[@"ra:album"]];
+    [cell.genreLabel setText:trackDict[@"ra:genre"]];
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
+    return [recentPlays count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
 }
 
 @end

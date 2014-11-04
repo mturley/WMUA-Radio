@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		082841381A08731B00B094C5 /* LICENCE.md in Sources */ = {isa = PBXBuildFile; fileRef = 082841351A08731B00B094C5 /* LICENCE.md */; };
 		082841391A08731B00B094C5 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 082841371A08731B00B094C5 /* XMLDictionary.m */; };
+		082841441A08A54100B094C5 /* WMUATrackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 082841421A08A54100B094C5 /* WMUATrackTableViewCell.m */; };
+		082841451A08A54100B094C5 /* WMUATrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082841431A08A54100B094C5 /* WMUATrackTableViewCell.xib */; };
 		0855985D19FD850C0089C8FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855985C19FD850C0089C8FE /* Foundation.framework */; };
 		0855985F19FD850C0089C8FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855985E19FD850C0089C8FE /* CoreGraphics.framework */; };
 		0855986119FD850C0089C8FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855986019FD850C0089C8FE /* UIKit.framework */; };
@@ -45,6 +47,9 @@
 		082841351A08731B00B094C5 /* LICENCE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENCE.md; sourceTree = "<group>"; };
 		082841361A08731B00B094C5 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		082841371A08731B00B094C5 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
+		082841411A08A54100B094C5 /* WMUATrackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMUATrackTableViewCell.h; sourceTree = "<group>"; };
+		082841421A08A54100B094C5 /* WMUATrackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMUATrackTableViewCell.m; sourceTree = "<group>"; };
+		082841431A08A54100B094C5 /* WMUATrackTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WMUATrackTableViewCell.xib; sourceTree = "<group>"; };
 		0855985919FD850C0089C8FE /* WMUA-Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WMUA-Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0855985C19FD850C0089C8FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0855985E19FD850C0089C8FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -150,6 +155,9 @@
 				0855986E19FD850D0089C8FE /* Main.storyboard */,
 				0855987119FD850D0089C8FE /* WMUANowPlayingViewController.h */,
 				0855987219FD850D0089C8FE /* WMUANowPlayingViewController.m */,
+				082841411A08A54100B094C5 /* WMUATrackTableViewCell.h */,
+				082841421A08A54100B094C5 /* WMUATrackTableViewCell.m */,
+				082841431A08A54100B094C5 /* WMUATrackTableViewCell.xib */,
 				0855987419FD850D0089C8FE /* WMUAScheduleViewController.h */,
 				0855987519FD850D0089C8FE /* WMUAScheduleViewController.m */,
 				0855987719FD850D0089C8FE /* Images.xcassets */,
@@ -290,6 +298,7 @@
 				08A4600F1A07FED7005CF34B /* wmuabanner.jpg in Resources */,
 				0855987819FD850D0089C8FE /* Images.xcassets in Resources */,
 				0855986719FD850C0089C8FE /* InfoPlist.strings in Resources */,
+				082841451A08A54100B094C5 /* WMUATrackTableViewCell.xib in Resources */,
 				085598A319FD9CC00089C8FE /* LICENSE in Resources */,
 				0855987019FD850D0089C8FE /* Main.storyboard in Resources */,
 			);
@@ -313,6 +322,7 @@
 				085598A419FD9CC00089C8FE /* Packet.m in Sources */,
 				085598A619FD9CC00089C8FE /* Radio.m in Sources */,
 				0855986D19FD850D0089C8FE /* WMUAAppDelegate.m in Sources */,
+				082841441A08A54100B094C5 /* WMUATrackTableViewCell.m in Sources */,
 				0855986919FD850D0089C8FE /* main.m in Sources */,
 				082841381A08731B00B094C5 /* LICENCE.md in Sources */,
 				085598A519FD9CC00089C8FE /* Queue.m in Sources */,
