@@ -44,6 +44,11 @@
     UINib *cellNib = [UINib nibWithNibName:@"WMUATrackTableViewCell" bundle:nil];
     [self.recentPlaysTable registerNib:cellNib forCellReuseIdentifier:@"TrackCell"];
     [self refreshRecentPlays];
+    
+    // Register for notifications of audio session interruption.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(audioSessionInterruptionHappened:)
+                                                 name:AVAudioSessionInterruptionNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,6 +79,10 @@
     } else {
         [self startRadio];
     }
+}
+
+- (void)audioSessionInterruptionHappened:(NSNotification *)notification {
+    [self stopRadio];
 }
 
 #pragma mark -
@@ -154,6 +163,8 @@
         [_playButton setTitle:@"Stop" forState:UIControlStateNormal];
         UIImage *stopIcon = [[UIImage imageNamed:@"stop"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [_playButton setImage:stopIcon forState:UIControlStateNormal];
+        [self refreshNowAiring];
+        [self refreshRecentPlays];
     } else {
         [_bufferingIndicator stopAnimating];
         [_statusLabel setText:@"Stopped"];
