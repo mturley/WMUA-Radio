@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		082841381A08731B00B094C5 /* LICENCE.md in Sources */ = {isa = PBXBuildFile; fileRef = 082841351A08731B00B094C5 /* LICENCE.md */; };
+		082841391A08731B00B094C5 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 082841371A08731B00B094C5 /* XMLDictionary.m */; };
 		0855985D19FD850C0089C8FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855985C19FD850C0089C8FE /* Foundation.framework */; };
 		0855985F19FD850C0089C8FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855985E19FD850C0089C8FE /* CoreGraphics.framework */; };
 		0855986119FD850C0089C8FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855986019FD850C0089C8FE /* UIKit.framework */; };
@@ -40,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		082841351A08731B00B094C5 /* LICENCE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENCE.md; sourceTree = "<group>"; };
+		082841361A08731B00B094C5 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
+		082841371A08731B00B094C5 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		0855985919FD850C0089C8FE /* WMUA-Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WMUA-Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0855985C19FD850C0089C8FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0855985E19FD850C0089C8FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,11 +100,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		082841341A08731B00B094C5 /* XMLDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				082841351A08731B00B094C5 /* LICENCE.md */,
+				082841361A08731B00B094C5 /* XMLDictionary.h */,
+				082841371A08731B00B094C5 /* XMLDictionary.m */,
+			);
+			path = XMLDictionary;
+			sourceTree = "<group>";
+		};
 		0855985019FD850C0089C8FE = {
 			isa = PBXGroup;
 			children = (
 				0855986219FD850C0089C8FE /* WMUA-Radio */,
 				0855989B19FD9CC00089C8FE /* Radio */,
+				082841341A08731B00B094C5 /* XMLDictionary */,
 				0855988419FD850D0089C8FE /* WMUA-RadioTests */,
 				0855985A19FD850C0089C8FE /* Products */,
 				0855985B19FD850C0089C8FE /* Frameworks */,
@@ -298,9 +314,11 @@
 				085598A619FD9CC00089C8FE /* Radio.m in Sources */,
 				0855986D19FD850D0089C8FE /* WMUAAppDelegate.m in Sources */,
 				0855986919FD850D0089C8FE /* main.m in Sources */,
+				082841381A08731B00B094C5 /* LICENCE.md in Sources */,
 				085598A519FD9CC00089C8FE /* Queue.m in Sources */,
 				0855987619FD850D0089C8FE /* WMUAScheduleViewController.m in Sources */,
 				0855987319FD850D0089C8FE /* WMUANowPlayingViewController.m in Sources */,
+				082841391A08731B00B094C5 /* XMLDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

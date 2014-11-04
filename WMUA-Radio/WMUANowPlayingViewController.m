@@ -7,8 +7,13 @@
 //
 
 #import "WMUANowPlayingViewController.h"
+#import "XMLDictionary.h"
 
 #define STREAM_URL @"http://ice7.securenetsystems.net/WMUA"
+
+#define XML_LAST10_URL @"http://wmua.radioactivity.fm/feeds/last10.xml"
+#define XML_SHOWS_URL @"http://wmua.radioactivity.fm/feeds/shows.xml"
+#define XML_SHOWONAIR_URL @"http://wmua.radioactivity.fm/feeds/showonair.xml"
 
 @interface WMUANowPlayingViewController ()
 
@@ -16,8 +21,7 @@
 
 @implementation WMUANowPlayingViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     playing = NO;
     buffering = NO;
@@ -33,8 +37,7 @@
     [self startRadio];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.  
 }
@@ -42,16 +45,14 @@
 # pragma mark -
 # pragma mark Playback Control Methods
 
-- (void)startRadio
-{
+- (void)startRadio {
     playing = YES;
     buffering = NO;
     [radio updatePlay:YES];
     [self updatePlayerUI];
 }
 
-- (void)stopRadio
-{
+- (void)stopRadio {
     playing = NO;
     buffering = NO;
     [radio updatePlay:NO];
@@ -105,6 +106,36 @@
 
 - (void)audioUnplugged {
     NSLog(@"delegate audio unplugged");
+}
+
+#pragma mark -
+#pragma mark XML/RSS Methods
+- (void)getDictFromXmlUrl:(NSString *)filename
+       withSuccessHandler:(void(^)(NSDictionary *))successHandler
+         withErrorHandler:(void(^)(NSError *))errorHandler {
+    NSURL *url = [NSURL URLWithString:filename];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if(!error) {
+                                   NSDictionary *dict = [NSDictionary dictionaryWithXMLData: data];
+                                   void (^_successHandler)(NSDictionary *) = [successHandler copy];
+                                   _successHandler(dict);
+                               } else {
+                                   void (^_errorHandler)(NSError *) = [errorHandler copy];
+                                   _errorHandler(error);
+                               }
+                           }];
+}
+
+- (IBAction)testXml:(id)sender{
+    [self getDictFromXmlUrl:XML_LAST10_URL withSuccessHandler:^(NSDictionary *dict) {
+        NSLog(@"PARSED DATA KEYS:");
+        NSLog(@"%@", dict[@"channel"][@"item"]);
+    } withErrorHandler:^(NSError *error) {
+        NSLog(@"ERROR FETCHING XML FILE!");
+    }];
 }
 
 #pragma mark -
