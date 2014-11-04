@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WMUAScheduleViewController : UIViewController
+@interface WMUAScheduleViewController : UIViewController <UIWebViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @end
