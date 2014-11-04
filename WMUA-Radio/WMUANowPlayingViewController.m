@@ -51,6 +51,12 @@
                                                  name:AVAudioSessionInterruptionNotification object:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    // Register to recieve Remote Control Events.
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.  
@@ -83,6 +89,39 @@
 
 - (void)audioSessionInterruptionHappened:(NSNotification *)notification {
     [self stopRadio];
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (void) remoteControlReceivedWithEvent: (UIEvent *) receivedEvent {
+    
+    if (receivedEvent.type == UIEventTypeRemoteControl) {
+        
+        switch (receivedEvent.subtype) {
+                
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                if (playing) {
+                    [self stopRadio];
+                } else {
+                    [self startRadio];
+                }
+                break;
+                
+            case UIEventSubtypeRemoteControlPlay:
+                [self startRadio];
+                break;
+                
+            case UIEventSubtypeRemoteControlPause:
+                [self stopRadio];
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
 
 #pragma mark -
@@ -149,6 +188,7 @@
 
 #pragma mark -
 #pragma mark UI Helper Methods
+
 - (void)updatePlayerUI {
     if(playing) {
         // Begin a background task so that playback can continue when user leaves this view.
