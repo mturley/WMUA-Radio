@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080CCBA81A1B72B300144266 /* WMUAAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 080CCBA71A1B72B300144266 /* WMUAAboutViewController.m */; };
 		082841381A08731B00B094C5 /* LICENCE.md in Sources */ = {isa = PBXBuildFile; fileRef = 082841351A08731B00B094C5 /* LICENCE.md */; };
 		082841391A08731B00B094C5 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 082841371A08731B00B094C5 /* XMLDictionary.m */; };
 		082841441A08A54100B094C5 /* WMUATrackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 082841421A08A54100B094C5 /* WMUATrackTableViewCell.m */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		080CCBA61A1B72B300144266 /* WMUAAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMUAAboutViewController.h; sourceTree = "<group>"; };
+		080CCBA71A1B72B300144266 /* WMUAAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMUAAboutViewController.m; sourceTree = "<group>"; };
 		082841351A08731B00B094C5 /* LICENCE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENCE.md; sourceTree = "<group>"; };
 		082841361A08731B00B094C5 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		082841371A08731B00B094C5 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				082841431A08A54100B094C5 /* WMUATrackTableViewCell.xib */,
 				0855987419FD850D0089C8FE /* WMUAScheduleViewController.h */,
 				0855987519FD850D0089C8FE /* WMUAScheduleViewController.m */,
+				080CCBA61A1B72B300144266 /* WMUAAboutViewController.h */,
+				080CCBA71A1B72B300144266 /* WMUAAboutViewController.m */,
 				0855987719FD850D0089C8FE /* Images.xcassets */,
 				0855986319FD850C0089C8FE /* Supporting Files */,
 			);
@@ -393,6 +398,7 @@
 				085598A519FD9CC00089C8FE /* Queue.m in Sources */,
 				0855987619FD850D0089C8FE /* WMUAScheduleViewController.m in Sources */,
 				0855987319FD850D0089C8FE /* WMUANowPlayingViewController.m in Sources */,
+				080CCBA81A1B72B300144266 /* WMUAAboutViewController.m in Sources */,
 				08E15A1A1A1ABDC500E41042 /* WMUADataSource.m in Sources */,
 				082841391A08731B00B094C5 /* XMLDictionary.m in Sources */,
 				08F048601A1B0B85009079A6 /* WMUARecentViewController.m in Sources */,

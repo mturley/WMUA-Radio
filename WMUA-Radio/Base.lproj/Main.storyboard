@@ -134,7 +134,7 @@
         <!--About-->
         <scene sceneID="iZQ-gK-pwd">
             <objects>
-                <viewController title="About" id="Xen-wn-rXF" sceneMemberID="viewController">
+                <viewController title="About" id="Xen-wn-rXF" customClass="WMUAAboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dK2-pd-MWC"/>
                         <viewControllerLayoutGuide type="bottom" id="n0Y-tC-E83"/>
@@ -146,16 +146,16 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WMUA 91.1FM for iPhone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJo-PG-LWO">
                                 <rect key="frame" x="16" y="319" width="288" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="FIC-3P-76r"/>
+                                    <constraint firstAttribute="height" constant="36" id="chn-ho-WYS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App built by Mike Turley in 2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zto-UN-T7t">
-                                <rect key="frame" x="36" y="363" width="246" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App built by Mike Turley in 2014" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zto-UN-T7t">
+                                <rect key="frame" x="16" y="363" width="288" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="fEU-t1-wUW"/>
+                                    <constraint firstAttribute="height" constant="21" id="QUz-fm-oZM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -164,59 +164,77 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WMUA on the web:" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdM-FZ-00H">
                                 <rect key="frame" x="16" y="125" width="288" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="nXH-52-W01"/>
+                                    <constraint firstAttribute="height" constant="21" id="KvD-3K-z5J"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVI-sM-z4c">
-                                <rect key="frame" x="88" y="418" width="141" height="30"/>
+                                <rect key="frame" x="16" y="418" width="288" height="30"/>
                                 <state key="normal" title="github.com/mturley">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="wwwGithubMturley:" destination="Xen-wn-rXF" eventType="touchUpInside" id="wLM-ya-Zdp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEl-9d-9Aj">
                                 <rect key="frame" x="16" y="154" width="288" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Leg-mv-Icy"/>
+                                    <constraint firstAttribute="height" constant="30" id="2lr-te-a9D"/>
                                 </constraints>
-                                <state key="normal" title="www.wmua.org">
+                                <state key="normal" title="www.WMUA.org">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="wwwHome:" destination="Xen-wn-rXF" eventType="touchUpInside" id="kLD-Vi-YIf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5F-Lc-0lr">
-                                <rect key="frame" x="107" y="392" width="104" height="30"/>
+                                <rect key="frame" x="16" y="392" width="288" height="30"/>
                                 <state key="normal" title="miketurley.com">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="wwwMikeTurleyDotCom:" destination="Xen-wn-rXF" eventType="touchUpInside" id="gFR-fY-8Ij"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivk-ky-D8U">
                                 <rect key="frame" x="16" y="192" width="288" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="aQC-yg-M0B"/>
+                                    <constraint firstAttribute="height" constant="30" id="6Dj-ln-Ag4"/>
                                 </constraints>
                                 <state key="normal" title="WMUA Sports">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="wwwSports:" destination="Xen-wn-rXF" eventType="touchUpInside" id="k4g-8s-Q2h"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndL-IX-VYj">
                                 <rect key="frame" x="16" y="230" width="288" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="2g0-yG-GgO"/>
+                                    <constraint firstAttribute="height" constant="30" id="tD1-uJ-U1l"/>
                                 </constraints>
                                 <state key="normal" title="WMUA News">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="wwwNews:" destination="Xen-wn-rXF" eventType="touchUpInside" id="T6A-Fa-Imh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hY1-6h-Dwh">
                                 <rect key="frame" x="16" y="268" width="288" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="GeA-3e-Cax"/>
+                                    <constraint firstAttribute="height" constant="30" id="2UU-wh-QYU"/>
                                 </constraints>
                                 <state key="normal" title="WMUA Podcasts">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="wwwPodcasts:" destination="Xen-wn-rXF" eventType="touchUpInside" id="ize-g2-ECy"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wmuabanner.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Jfq-RQ-2PW">
                                 <rect key="frame" x="16" y="28" width="288" height="70"/>
@@ -224,36 +242,38 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="nVI-sM-z4c" secondAttribute="trailing" constant="75" id="1p6-ba-Oeo"/>
-                            <constraint firstItem="n0Y-tC-E83" firstAttribute="top" secondItem="nVI-sM-z4c" secondAttribute="bottom" constant="71" id="5sH-Ou-bKi"/>
-                            <constraint firstItem="Zto-UN-T7t" firstAttribute="top" secondItem="EJo-PG-LWO" secondAttribute="bottom" constant="8" symbolic="YES" id="BPC-Vf-S1w"/>
-                            <constraint firstItem="jdM-FZ-00H" firstAttribute="top" secondItem="Jfq-RQ-2PW" secondAttribute="bottom" constant="27" id="Ldg-h5-KrG"/>
-                            <constraint firstItem="Jfq-RQ-2PW" firstAttribute="top" secondItem="dK2-pd-MWC" secondAttribute="bottom" constant="8" symbolic="YES" id="MqU-Qx-AQZ"/>
-                            <constraint firstItem="EJo-PG-LWO" firstAttribute="trailing" secondItem="hY1-6h-Dwh" secondAttribute="trailing" id="NGN-bU-ggD"/>
-                            <constraint firstItem="h5F-Lc-0lr" firstAttribute="top" secondItem="Zto-UN-T7t" secondAttribute="bottom" constant="8" symbolic="YES" id="O4y-fy-IML"/>
-                            <constraint firstItem="ivk-ky-D8U" firstAttribute="top" secondItem="kEl-9d-9Aj" secondAttribute="bottom" constant="8" symbolic="YES" id="PMg-nm-f6h"/>
-                            <constraint firstItem="Zto-UN-T7t" firstAttribute="leading" secondItem="zHP-d3-86n" secondAttribute="leadingMargin" constant="20" id="T3b-JE-4yi"/>
-                            <constraint firstItem="ndL-IX-VYj" firstAttribute="trailing" secondItem="hY1-6h-Dwh" secondAttribute="trailing" id="U9B-jY-hj3"/>
-                            <constraint firstItem="nVI-sM-z4c" firstAttribute="top" secondItem="Zto-UN-T7t" secondAttribute="bottom" constant="34" id="Uwb-69-EP8"/>
-                            <constraint firstItem="EJo-PG-LWO" firstAttribute="top" secondItem="hY1-6h-Dwh" secondAttribute="bottom" constant="21" id="X3s-MP-h3Q"/>
-                            <constraint firstItem="ivk-ky-D8U" firstAttribute="leading" secondItem="ndL-IX-VYj" secondAttribute="leading" id="Zpw-mA-bnD"/>
-                            <constraint firstItem="ndL-IX-VYj" firstAttribute="trailing" secondItem="zHP-d3-86n" secondAttribute="trailingMargin" id="cSn-XG-fgh"/>
-                            <constraint firstItem="n0Y-tC-E83" firstAttribute="top" secondItem="h5F-Lc-0lr" secondAttribute="bottom" constant="97" id="cbb-Dd-xet"/>
-                            <constraint firstItem="ivk-ky-D8U" firstAttribute="trailing" secondItem="kEl-9d-9Aj" secondAttribute="trailing" id="dGK-Ow-0tQ"/>
-                            <constraint firstItem="Zto-UN-T7t" firstAttribute="centerX" secondItem="h5F-Lc-0lr" secondAttribute="centerX" id="enM-2k-D1J"/>
-                            <constraint firstItem="ndL-IX-VYj" firstAttribute="top" secondItem="ivk-ky-D8U" secondAttribute="bottom" constant="8" symbolic="YES" id="enc-gi-LNV"/>
-                            <constraint firstItem="hY1-6h-Dwh" firstAttribute="top" secondItem="ndL-IX-VYj" secondAttribute="bottom" constant="8" symbolic="YES" id="eqU-5u-qe6"/>
-                            <constraint firstItem="kEl-9d-9Aj" firstAttribute="top" secondItem="jdM-FZ-00H" secondAttribute="bottom" constant="8" symbolic="YES" id="fjx-wc-2gW"/>
-                            <constraint firstItem="jdM-FZ-00H" firstAttribute="leading" secondItem="zHP-d3-86n" secondAttribute="leadingMargin" id="jtA-6C-dp8"/>
-                            <constraint firstItem="ndL-IX-VYj" firstAttribute="leading" secondItem="hY1-6h-Dwh" secondAttribute="leading" id="kDn-b5-NzK"/>
-                            <constraint firstItem="kEl-9d-9Aj" firstAttribute="leading" secondItem="jdM-FZ-00H" secondAttribute="leading" id="pEv-bv-Zgf"/>
-                            <constraint firstItem="nVI-sM-z4c" firstAttribute="leading" secondItem="zHP-d3-86n" secondAttribute="leadingMargin" constant="72" id="pZg-xs-0Tk"/>
-                            <constraint firstItem="EJo-PG-LWO" firstAttribute="leading" secondItem="hY1-6h-Dwh" secondAttribute="leading" id="qYS-BW-qwg"/>
-                            <constraint firstItem="kEl-9d-9Aj" firstAttribute="trailing" secondItem="jdM-FZ-00H" secondAttribute="trailing" id="uPQ-JM-aCL"/>
-                            <constraint firstItem="Jfq-RQ-2PW" firstAttribute="leading" secondItem="jdM-FZ-00H" secondAttribute="leading" id="vWn-kR-Pp0"/>
-                            <constraint firstItem="kEl-9d-9Aj" firstAttribute="leading" secondItem="ivk-ky-D8U" secondAttribute="leading" id="wrz-iC-6LA"/>
-                            <constraint firstItem="jdM-FZ-00H" firstAttribute="trailing" secondItem="Jfq-RQ-2PW" secondAttribute="trailing" id="xCq-a8-y7H"/>
-                            <constraint firstItem="ivk-ky-D8U" firstAttribute="trailing" secondItem="ndL-IX-VYj" secondAttribute="trailing" id="y3M-I6-5s3"/>
+                            <constraint firstItem="Jfq-RQ-2PW" firstAttribute="trailing" secondItem="jdM-FZ-00H" secondAttribute="trailing" id="09N-cK-AxG"/>
+                            <constraint firstItem="EJo-PG-LWO" firstAttribute="top" secondItem="hY1-6h-Dwh" secondAttribute="bottom" constant="21" id="0gK-uZ-By3"/>
+                            <constraint firstItem="kEl-9d-9Aj" firstAttribute="trailing" secondItem="ivk-ky-D8U" secondAttribute="trailing" id="0tm-D4-mEi"/>
+                            <constraint firstItem="ndL-IX-VYj" firstAttribute="trailing" secondItem="ivk-ky-D8U" secondAttribute="trailing" id="3MT-rK-m1o"/>
+                            <constraint firstItem="kEl-9d-9Aj" firstAttribute="top" secondItem="jdM-FZ-00H" secondAttribute="bottom" constant="8" symbolic="YES" id="4LQ-JX-3XO"/>
+                            <constraint firstItem="jdM-FZ-00H" firstAttribute="top" secondItem="Jfq-RQ-2PW" secondAttribute="bottom" constant="27" id="E5m-ub-Gwr"/>
+                            <constraint firstItem="nVI-sM-z4c" firstAttribute="top" secondItem="Zto-UN-T7t" secondAttribute="bottom" constant="34" id="Eey-85-Bxw"/>
+                            <constraint firstItem="nVI-sM-z4c" firstAttribute="trailing" secondItem="h5F-Lc-0lr" secondAttribute="trailing" id="G3H-9J-l0c"/>
+                            <constraint firstItem="h5F-Lc-0lr" firstAttribute="top" secondItem="Zto-UN-T7t" secondAttribute="bottom" constant="8" symbolic="YES" id="IcK-N8-Pko"/>
+                            <constraint firstItem="Jfq-RQ-2PW" firstAttribute="top" secondItem="dK2-pd-MWC" secondAttribute="bottom" constant="8" symbolic="YES" id="Nhm-gD-ZOT"/>
+                            <constraint firstItem="ndL-IX-VYj" firstAttribute="top" secondItem="ivk-ky-D8U" secondAttribute="bottom" constant="8" symbolic="YES" id="PhX-n3-riV"/>
+                            <constraint firstItem="kEl-9d-9Aj" firstAttribute="leading" secondItem="ivk-ky-D8U" secondAttribute="leading" id="QQv-Iw-mpH"/>
+                            <constraint firstItem="nVI-sM-z4c" firstAttribute="leading" secondItem="h5F-Lc-0lr" secondAttribute="leading" id="TM9-ln-XEg"/>
+                            <constraint firstItem="ndL-IX-VYj" firstAttribute="leading" secondItem="ivk-ky-D8U" secondAttribute="leading" id="URS-Rq-x91"/>
+                            <constraint firstItem="EJo-PG-LWO" firstAttribute="leading" secondItem="Zto-UN-T7t" secondAttribute="leading" id="Vv3-QD-rHF"/>
+                            <constraint firstItem="h5F-Lc-0lr" firstAttribute="trailing" secondItem="Zto-UN-T7t" secondAttribute="trailing" id="Y9R-gZ-lAE"/>
+                            <constraint firstItem="ivk-ky-D8U" firstAttribute="top" secondItem="kEl-9d-9Aj" secondAttribute="bottom" constant="8" symbolic="YES" id="ZE9-Xl-RFN"/>
+                            <constraint firstItem="hY1-6h-Dwh" firstAttribute="top" secondItem="ndL-IX-VYj" secondAttribute="bottom" constant="8" symbolic="YES" id="bCm-BS-WDa"/>
+                            <constraint firstItem="ndL-IX-VYj" firstAttribute="leading" secondItem="hY1-6h-Dwh" secondAttribute="leading" id="bbF-aP-9yF"/>
+                            <constraint firstItem="EJo-PG-LWO" firstAttribute="trailing" secondItem="hY1-6h-Dwh" secondAttribute="trailing" id="btU-F1-j4s"/>
+                            <constraint firstItem="Zto-UN-T7t" firstAttribute="leading" secondItem="h5F-Lc-0lr" secondAttribute="leading" id="byq-Wz-CDT"/>
+                            <constraint firstItem="jdM-FZ-00H" firstAttribute="leading" secondItem="kEl-9d-9Aj" secondAttribute="leading" id="cNg-K7-YxN"/>
+                            <constraint firstItem="EJo-PG-LWO" firstAttribute="leading" secondItem="hY1-6h-Dwh" secondAttribute="leading" id="cg5-fs-Z3A"/>
+                            <constraint firstItem="h5F-Lc-0lr" firstAttribute="trailing" secondItem="zHP-d3-86n" secondAttribute="trailingMargin" id="dRT-S0-gx2"/>
+                            <constraint firstItem="ndL-IX-VYj" firstAttribute="trailing" secondItem="hY1-6h-Dwh" secondAttribute="trailing" id="jKi-S0-PQT"/>
+                            <constraint firstItem="n0Y-tC-E83" firstAttribute="top" secondItem="h5F-Lc-0lr" secondAttribute="bottom" constant="97" id="joA-0A-bxn"/>
+                            <constraint firstItem="Jfq-RQ-2PW" firstAttribute="leading" secondItem="zHP-d3-86n" secondAttribute="leadingMargin" id="kcG-zo-aKj"/>
+                            <constraint firstItem="Zto-UN-T7t" firstAttribute="top" secondItem="EJo-PG-LWO" secondAttribute="bottom" constant="8" symbolic="YES" id="mks-Ud-89Q"/>
+                            <constraint firstItem="Zto-UN-T7t" firstAttribute="trailing" secondItem="EJo-PG-LWO" secondAttribute="trailing" id="mzv-Ra-e8m"/>
+                            <constraint firstItem="jdM-FZ-00H" firstAttribute="trailing" secondItem="kEl-9d-9Aj" secondAttribute="trailing" id="oMf-gI-hCB"/>
+                            <constraint firstItem="jdM-FZ-00H" firstAttribute="leading" secondItem="Jfq-RQ-2PW" secondAttribute="leading" id="vvf-6b-z8m"/>
+                            <constraint firstItem="n0Y-tC-E83" firstAttribute="top" secondItem="nVI-sM-z4c" secondAttribute="bottom" constant="71" id="xzJ-34-NNJ"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -261,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9J9-h0-wG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1352" y="159"/>
+            <point key="canvasLocation" x="978" y="508"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="ot8-2e-RuS">
