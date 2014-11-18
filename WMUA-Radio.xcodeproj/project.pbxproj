@@ -31,6 +31,7 @@
 		085598A519FD9CC00089C8FE /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 085598A019FD9CC00089C8FE /* Queue.m */; };
 		085598A619FD9CC00089C8FE /* Radio.m in Sources */ = {isa = PBXBuildFile; fileRef = 085598A219FD9CC00089C8FE /* Radio.m */; };
 		08A4600F1A07FED7005CF34B /* wmuabanner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 08A4600E1A07FED7005CF34B /* wmuabanner.jpg */; };
+		08E15A1A1A1ABDC500E41042 /* WMUADataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E15A191A1ABDC500E41042 /* WMUADataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		085598A119FD9CC00089C8FE /* Radio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Radio.h; sourceTree = "<group>"; };
 		085598A219FD9CC00089C8FE /* Radio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Radio.m; sourceTree = "<group>"; };
 		08A4600E1A07FED7005CF34B /* wmuabanner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wmuabanner.jpg; sourceTree = "<group>"; };
+		08E15A181A1ABDC500E41042 /* WMUADataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMUADataSource.h; sourceTree = "<group>"; };
+		08E15A191A1ABDC500E41042 /* WMUADataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMUADataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 				0855986E19FD850D0089C8FE /* Main.storyboard */,
 				0855987119FD850D0089C8FE /* WMUANowPlayingViewController.h */,
 				0855987219FD850D0089C8FE /* WMUANowPlayingViewController.m */,
+				08E15A181A1ABDC500E41042 /* WMUADataSource.h */,
+				08E15A191A1ABDC500E41042 /* WMUADataSource.m */,
 				082841411A08A54100B094C5 /* WMUATrackTableViewCell.h */,
 				082841421A08A54100B094C5 /* WMUATrackTableViewCell.m */,
 				082841431A08A54100B094C5 /* WMUATrackTableViewCell.xib */,
@@ -328,6 +333,7 @@
 				085598A519FD9CC00089C8FE /* Queue.m in Sources */,
 				0855987619FD850D0089C8FE /* WMUAScheduleViewController.m in Sources */,
 				0855987319FD850D0089C8FE /* WMUANowPlayingViewController.m in Sources */,
+				08E15A1A1A1ABDC500E41042 /* WMUADataSource.m in Sources */,
 				082841391A08731B00B094C5 /* XMLDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

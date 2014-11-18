@@ -8,13 +8,9 @@
 
 #import "WMUANowPlayingViewController.h"
 #import "WMUATrackTableViewCell.h"
-#import "XMLDictionary.h"
+#import "WMUADataSource.h"
 
 #define STREAM_URL @"http://ice7.securenetsystems.net/WMUA"
-
-#define XML_LAST10_URL @"http://wmua.radioactivity.fm/feeds/last10.xml"
-#define XML_SHOWS_URL @"http://wmua.radioactivity.fm/feeds/shows.xml"
-#define XML_SHOWONAIR_URL @"http://wmua.radioactivity.fm/feeds/showonair.xml"
 
 @interface WMUANowPlayingViewController ()
 
@@ -165,26 +161,6 @@
     NSLog(@"delegate audio unplugged");
 }
 
-#pragma mark -
-#pragma mark XML/RSS Methods
-- (void)getDictFromXmlUrl:(NSString *)filename
-       withSuccessHandler:(void(^)(NSDictionary *))successHandler
-         withErrorHandler:(void(^)(NSError *))errorHandler {
-    NSURL *url = [NSURL URLWithString:filename];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               if(!error) {
-                                   NSDictionary *dict = [NSDictionary dictionaryWithXMLData: data];
-                                   void (^_successHandler)(NSDictionary *) = [successHandler copy];
-                                   _successHandler(dict);
-                               } else {
-                                   void (^_errorHandler)(NSError *) = [errorHandler copy];
-                                   _errorHandler(error);
-                               }
-                           }];
-}
 
 #pragma mark -
 #pragma mark UI Helper Methods
@@ -226,13 +202,12 @@
     [_airingShowLabel setText:@"Loading..."];
     [_airingDJLabel setText:@"Loading..."];
     [_airingScheduleLabel setText:@"Loading..."];
-    [self getDictFromXmlUrl:XML_SHOWONAIR_URL withSuccessHandler:^(NSDictionary *dict) {
+    [WMUADataSource getShowOnAir:^(NSDictionary *dict) {
         NSDictionary *showDict = dict[@"channel"][@"item"];
         [_airingShowLabel setText:showDict[@"ra:showname"]];
         [_airingDJLabel setText:[showDict[@"ra:showdj"] componentsJoinedByString:@", "]];
         [_airingScheduleLabel setText:showDict[@"ra:showschedule"]];
     } withErrorHandler:^(NSError *error) {
-        NSLog(@"ERROR FETCHING XML FILE!");
         [_airingShowLabel setText:@"(No Data Available)"];
         [_airingDJLabel setText:@"(No Data Available)"];
         [_airingScheduleLabel setText:@"(No Data Available)"];
@@ -246,7 +221,7 @@
 - (void)refreshRecentPlays {
     recentPlays = [[NSArray alloc] init];
     [self.recentPlaysTable reloadData];
-    [self getDictFromXmlUrl:XML_LAST10_URL withSuccessHandler:^(NSDictionary *dict) {
+    [WMUADataSource getLast10Plays:^(NSDictionary *dict) {
         recentPlays = dict[@"channel"][@"item"];
         [self.recentPlaysTable reloadData];
     } withErrorHandler:^(NSError *error) {
