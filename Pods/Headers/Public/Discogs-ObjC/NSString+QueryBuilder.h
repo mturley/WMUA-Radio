@@ -1,0 +1,1 @@
+../../../Discogs-ObjC/Discogs-ObjC/NSString+QueryBuilder.h

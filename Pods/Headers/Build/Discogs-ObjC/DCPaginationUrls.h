@@ -1,0 +1,1 @@
+../../../Discogs-ObjC/Discogs-ObjC/DCPaginationUrls.h

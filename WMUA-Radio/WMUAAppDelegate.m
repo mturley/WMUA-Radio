@@ -7,12 +7,14 @@
 //
 
 #import "WMUAAppDelegate.h"
+#import "Discogs-ObjC.h"
 
 @implementation WMUAAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [DCDiscogsApiConfiguration setUserAgent:@"WMUA-Radio/1.0 +https://github.com/mturley/WMUA-Radio"];
     return YES;
 }
 							
