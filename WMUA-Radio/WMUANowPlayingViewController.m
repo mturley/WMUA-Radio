@@ -1,5 +1,5 @@
 //
-//  WMUAFirstViewController.m
+//  WMUANowPlayingViewController.m
 //  WMUA-Radio
 //
 //  Created by Mike Turley on 10/26/14.
@@ -188,8 +188,9 @@
     }
 }
 
-- (IBAction)refreshNowAiring:(id)sender {
+- (IBAction)refreshButtonPressed:(id)sender {
     [self refreshNowAiring];
+    // TODO refresh current track + album art
 }
 
 - (void)refreshNowAiring {

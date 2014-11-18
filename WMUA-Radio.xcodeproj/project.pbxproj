@@ -33,6 +33,7 @@
 		08A4600F1A07FED7005CF34B /* wmuabanner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 08A4600E1A07FED7005CF34B /* wmuabanner.jpg */; };
 		08E15A1A1A1ABDC500E41042 /* WMUADataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E15A191A1ABDC500E41042 /* WMUADataSource.m */; };
 		08F048601A1B0B85009079A6 /* WMUARecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F0485F1A1B0B85009079A6 /* WMUARecentViewController.m */; };
+		08F048641A1B2C5D009079A6 /* wmua-320.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F048631A1B2C5D009079A6 /* wmua-320.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		08E15A191A1ABDC500E41042 /* WMUADataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMUADataSource.m; sourceTree = "<group>"; };
 		08F0485E1A1B0B85009079A6 /* WMUARecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WMUARecentViewController.h; path = ../WMUARecentViewController.h; sourceTree = "<group>"; };
 		08F0485F1A1B0B85009079A6 /* WMUARecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WMUARecentViewController.m; path = ../WMUARecentViewController.m; sourceTree = "<group>"; };
+		08F048631A1B2C5D009079A6 /* wmua-320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wmua-320.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				08A4600E1A07FED7005CF34B /* wmuabanner.jpg */,
+				08F048631A1B2C5D009079A6 /* wmua-320.png */,
 				0855986419FD850C0089C8FE /* WMUA-Radio-Info.plist */,
 				0855986519FD850C0089C8FE /* InfoPlist.strings */,
 				0855986819FD850D0089C8FE /* main.m */,
@@ -307,6 +310,7 @@
 			files = (
 				08A4600F1A07FED7005CF34B /* wmuabanner.jpg in Resources */,
 				0855987819FD850D0089C8FE /* Images.xcassets in Resources */,
+				08F048641A1B2C5D009079A6 /* wmua-320.png in Resources */,
 				0855986719FD850C0089C8FE /* InfoPlist.strings in Resources */,
 				082841451A08A54100B094C5 /* WMUATrackTableViewCell.xib in Resources */,
 				085598A319FD9CC00089C8FE /* LICENSE in Resources */,

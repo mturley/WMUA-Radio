@@ -1,5 +1,5 @@
 //
-//  WMUAFirstViewController.h
+//  WMUANowPlayingViewController.h
 //  WMUA-Radio
 //
 //  Created by Mike Turley on 10/26/14.
@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *airingShowLabel;
 @property (weak, nonatomic) IBOutlet UILabel *airingDJLabel;
 @property (weak, nonatomic) IBOutlet UILabel *airingScheduleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *coverArtView;
     
 @end

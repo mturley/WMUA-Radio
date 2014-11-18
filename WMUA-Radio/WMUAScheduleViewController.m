@@ -1,5 +1,5 @@
 //
-//  WMUASecondViewController.m
+//  WMUAScheduleViewController.m
 //  WMUA-Radio
 //
 //  Created by Mike Turley on 10/26/14.
