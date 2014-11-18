@@ -79,6 +79,7 @@
                             </navigationBar>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1bg-L8-e0y">
                                 <rect key="frame" x="34" y="157" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -270,40 +271,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9i-fr-gxc">
-                                <rect key="frame" x="102" y="20" width="117" height="26"/>
-                                <state key="normal" title="Reload Schedule">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="reloadSchedule:" destination="QUy-BD-bpt" eventType="touchUpInside" id="Emw-ch-5KO"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bZo-6a-NA4">
-                                <rect key="frame" x="16" y="23" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="pz8-lb-spF"/>
-                                </constraints>
-                            </activityIndicatorView>
-                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dma-id-1Op">
-                                <rect key="frame" x="0.0" y="54" width="320" height="514"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dma-id-1Op">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="QUy-BD-bpt" id="1ax-sL-WIG"/>
                                 </connections>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bZo-6a-NA4">
+                                <rect key="frame" x="150" y="306" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8C-9p-X8p">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Schedule" id="sUT-5A-QBo">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="iV5-pO-xKo">
+                                            <connections>
+                                                <action selector="refreshButtonPressed:" destination="QUy-BD-bpt" id="3dH-TT-q4G"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="dma-id-1Op" secondAttribute="bottom" id="GHz-nC-23T"/>
-                            <constraint firstItem="bZo-6a-NA4" firstAttribute="top" secondItem="FgS-U6-xeU" secondAttribute="bottom" constant="3" id="La9-xj-lIS"/>
-                            <constraint firstAttribute="trailing" secondItem="dma-id-1Op" secondAttribute="trailing" id="Sme-uh-mcH"/>
-                            <constraint firstItem="dma-id-1Op" firstAttribute="top" secondItem="R9i-fr-gxc" secondAttribute="bottom" constant="8" symbolic="YES" id="a6g-rv-Fet"/>
-                            <constraint firstItem="bZo-6a-NA4" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leadingMargin" id="cnt-L6-q0K"/>
-                            <constraint firstItem="dma-id-1Op" firstAttribute="centerX" secondItem="R9i-fr-gxc" secondAttribute="centerX" id="f0Y-Sb-lhK"/>
-                            <constraint firstItem="dma-id-1Op" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="qHx-F1-s6F"/>
-                            <constraint firstItem="R9i-fr-gxc" firstAttribute="top" secondItem="FgS-U6-xeU" secondAttribute="bottom" id="riH-I0-l2t"/>
-                            <constraint firstItem="R9i-fr-gxc" firstAttribute="centerY" secondItem="bZo-6a-NA4" secondAttribute="centerY" id="sTt-rY-5rD"/>
+                            <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="bZo-6a-NA4" secondAttribute="bottom" constant="193" id="4vQ-Py-2PC"/>
+                            <constraint firstItem="c8C-9p-X8p" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="GH2-m3-BPU"/>
+                            <constraint firstAttribute="trailing" secondItem="c8C-9p-X8p" secondAttribute="trailing" id="RhY-3g-4qY"/>
+                            <constraint firstItem="c8C-9p-X8p" firstAttribute="top" secondItem="FgS-U6-xeU" secondAttribute="bottom" id="Ti6-jQ-erK"/>
+                            <constraint firstItem="dma-id-1Op" firstAttribute="top" secondItem="c8C-9p-X8p" secondAttribute="bottom" id="bYS-v5-h1c"/>
+                            <constraint firstItem="c8C-9p-X8p" firstAttribute="centerX" secondItem="bZo-6a-NA4" secondAttribute="centerX" id="dxT-qS-Aek"/>
+                            <constraint firstItem="bZo-6a-NA4" firstAttribute="centerY" secondItem="dma-id-1Op" secondAttribute="centerY" id="e8Z-ic-6h1"/>
+                            <constraint firstItem="dma-id-1Op" firstAttribute="leading" secondItem="c8C-9p-X8p" secondAttribute="leading" id="mDp-ku-4J6"/>
+                            <constraint firstItem="c8C-9p-X8p" firstAttribute="trailing" secondItem="dma-id-1Op" secondAttribute="trailing" id="oxl-PN-XLE"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>

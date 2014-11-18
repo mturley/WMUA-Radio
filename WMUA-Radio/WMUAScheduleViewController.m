@@ -27,7 +27,7 @@
     [self.webView loadRequest:request];
 }
 
-- (IBAction)reloadSchedule:(id)sender {
+- (IBAction)refreshButtonPressed:(id)sender {
     [self configureView];
 }
 
