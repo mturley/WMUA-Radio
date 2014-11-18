@@ -207,7 +207,7 @@
     }];
     
     // Testing fetching album art
-    [WMUADataSource getArtworkUrlForAlbum:@"Nevermind" byArtist:@"Nirvana" inSize:@"400x400" withHandler:^(NSString *imgUrl) {
+    [WMUADataSource getArtworkUrlForAlbum:@"SDAfgweg" byArtist:@"awegwh" inSize:@"400x400" withHandler:^(NSString *imgUrl) {
         NSLog(imgUrl);
     }];
 }

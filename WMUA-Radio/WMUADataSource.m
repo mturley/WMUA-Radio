@@ -71,7 +71,7 @@
         void (^_handler)(NSString *) = [handler copy];
         if(!error) {
             NSDictionary *obj = response.body.object;
-            if(obj[@"resultCount"] > 0) {
+            if([obj[@"resultCount"] integerValue] > 0) {
                 NSString *rawArtworkUrl = obj[@"results"][0][@"artworkUrl100"];
                 NSString *sizedArtworkUrl = [rawArtworkUrl stringByReplacingOccurrencesOfString:@"100x100" withString:size];
                 _handler(sizedArtworkUrl);
