@@ -8,6 +8,7 @@
 
 #import "WMUADataSource.h"
 #import "XMLDictionary.h"
+#import "UNIRest.h"
 
 #define XML_LAST10_URL @"http://wmua.radioactivity.fm/feeds/last10.xml"
 #define XML_SHOWS_URL @"http://wmua.radioactivity.fm/feeds/shows.xml"
@@ -49,6 +50,38 @@
     [self getDictFromXmlUrl: XML_LAST10_URL
          withSuccessHandler: successHandler
            withErrorHandler: errorHandler];
+}
+
++ (void)getArtworkUrlForAlbum:(NSString *)albumName
+                     byArtist:(NSString *)artistName
+                       inSize:(NSString *)size        // size must be @"60x60", @"100x100", @"200x200", @"400x400" or @"600x600"
+                  withHandler:(void(^)(NSString *))handler
+{
+    NSString *urlRoot = @"https://itunes.apple.com/search?term=";
+    NSString *termWithSpaces = [[artistName stringByAppendingString:@" "] stringByAppendingString:albumName];
+    NSString *termWithPluses = [termWithSpaces stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSString *url = [[urlRoot stringByAppendingString:termWithPluses] stringByAppendingString:@"&entity=album"];
+    
+    NSDictionary *headers = @{@"accept": @"application/json"};
+    
+    [[UNIRest get:^(UNISimpleRequest *request) {
+        [request setUrl:url];
+        [request setHeaders:headers];
+    }] asJsonAsync:^(UNIHTTPJsonResponse* response, NSError *error) {
+        void (^_handler)(NSString *) = [handler copy];
+        if(!error) {
+            NSDictionary *obj = response.body.object;
+            if(obj[@"resultCount"] > 0) {
+                NSString *rawArtworkUrl = obj[@"results"][0][@"artworkUrl100"];
+                NSString *sizedArtworkUrl = [rawArtworkUrl stringByReplacingOccurrencesOfString:@"100x100" withString:size];
+                _handler(sizedArtworkUrl);
+            } else {
+                _handler(nil);
+            }
+        } else {
+            _handler(nil);
+        }
+    }];
 }
 
 

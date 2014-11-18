@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A753E392-2E52-44F3-9FC4-4393CFC863F6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WMUA-Radio</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8A7D03D142D4110C5F35FF836A66DED6A41872D7</key>
+		<string>github.com:mturley/WMUA-Radio.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>WMUA-Radio.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8A7D03D142D4110C5F35FF836A66DED6A41872D7</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:mturley/WMUA-Radio.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8A7D03D142D4110C5F35FF836A66DED6A41872D7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8A7D03D142D4110C5F35FF836A66DED6A41872D7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WMUA-Radio</string>
+		</dict>
+	</array>
+</dict>
+</plist>

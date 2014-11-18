@@ -205,6 +205,11 @@
         [_airingDJLabel setText:@"(No Data Available)"];
         [_airingScheduleLabel setText:@"(No Data Available)"];
     }];
+    
+    // Testing fetching album art
+    [WMUADataSource getArtworkUrlForAlbum:@"Nevermind" byArtist:@"Nirvana" inSize:@"400x400" withHandler:^(NSString *imgUrl) {
+        NSLog(imgUrl);
+    }];
 }
 
 - (void)alert:(NSString *)title withMessage:(NSString *)message
