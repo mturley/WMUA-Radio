@@ -32,7 +32,7 @@
                                 <rect key="frame" x="16" y="72" width="288" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Listen Live Now" image="play">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.60392159219999997" green="0.18431372939999999" blue="0.1960784495" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="toggleRadio:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="eq5-9U-JIq"/>
@@ -412,4 +412,5 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <color key="tintColor" red="0.60392159223556519" green="0.18431372940540314" blue="0.19607844948768616" alpha="1" colorSpace="deviceRGB"/>
 </document>

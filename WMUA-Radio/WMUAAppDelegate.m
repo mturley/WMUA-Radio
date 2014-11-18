@@ -15,6 +15,7 @@
 {
     // Override point for customization after application launch.
     [DCDiscogsApiConfiguration setUserAgent:@"WMUA-Radio/1.0 +https://github.com/mturley/WMUA-Radio"];
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:153/255.0f green:47/255.0f blue:49/255.0f alpha:1.0f]];
     return YES;
 }
 							
