@@ -12,6 +12,8 @@
 
 @interface WMUARecentViewController ()
 
+@property (strong, nonatomic) UIRefreshControl* refreshControl;
+
 @end
 
 @implementation WMUARecentViewController
@@ -24,6 +26,16 @@
     UINib *cellNib = [UINib nibWithNibName:@"WMUATrackTableViewCell" bundle:nil];
     [self.recentPlaysTable registerNib:cellNib forCellReuseIdentifier:@"TrackCell"];
     [self refreshRecentPlays];
+    
+    
+    // Initialize the refresh control.
+    UITableViewController *tableViewController = [[UITableViewController alloc] init];
+    tableViewController.tableView = self.recentPlaysTable;
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshRecentPlays) forControlEvents:UIControlEventValueChanged];
+    tableViewController.refreshControl = self.refreshControl;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,12 +48,15 @@
 }
 
 - (void)refreshRecentPlays {
+    [self.refreshControl beginRefreshing];
     recentPlays = [[NSArray alloc] init];
     [self.recentPlaysTable reloadData];
     [WMUADataSource getLast10Plays:^(NSDictionary *dict) {
         recentPlays = dict[@"channel"][@"item"];
         [self.recentPlaysTable reloadData];
+        [self.refreshControl endRefreshing];
     } withErrorHandler:^(NSError *error) {
+        [self.refreshControl endRefreshing];
         NSLog(@"ERROR FETCHING XML FILE!");
     }];
 }
