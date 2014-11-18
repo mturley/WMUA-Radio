@@ -14,6 +14,8 @@
     BOOL playing;
     BOOL buffering;
     UIBackgroundTaskIdentifier bgTaskID;
+    NSString *currentArtist;
+    NSString *currentAlbum;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *playButton;

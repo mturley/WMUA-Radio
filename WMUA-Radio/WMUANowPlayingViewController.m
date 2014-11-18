@@ -22,6 +22,9 @@
     playing = NO;
     buffering = NO;
     
+    currentAlbum = nil;
+    currentArtist = nil;
+    
     // Tweaks to the UI that were unavailable in Interface Builder
     _playButton.layer.cornerRadius = 10;
     _playButton.layer.borderWidth = 0.5f;
@@ -192,6 +195,7 @@
 }
 
 - (void)refreshNowAiring {
+    // Display current show on air
     [_airingShowLabel setText:@"Loading..."];
     [_airingDJLabel setText:@"Loading..."];
     [_airingScheduleLabel setText:@"Loading..."];
@@ -204,12 +208,38 @@
         [_airingShowLabel setText:@"(No Data Available)"];
         [_airingDJLabel setText:@"(No Data Available)"];
         [_airingScheduleLabel setText:@"(No Data Available)"];
+        [self setAlbumArt:nil];
     }];
     
-    // Testing fetching album art
-    [WMUADataSource getArtworkUrlForAlbum:@"SDAfgweg" byArtist:@"awegwh" inSize:@"400x400" withHandler:^(NSString *imgUrl) {
-        NSLog(imgUrl);
+    // Display latest track album art
+    [WMUADataSource getLast10Plays:^(NSDictionary *dict) {
+        NSDictionary *latestTrack = dict[@"channel"][@"item"][0];
+        NSString *album = latestTrack[@"ra:album"];
+        NSString *artist = latestTrack[@"ra:artist"];
+        if(![album isEqualToString: currentAlbum] || ![artist isEqualToString: currentArtist]) {
+            currentAlbum = album;
+            currentArtist = artist;
+            [WMUADataSource getArtworkUrlForAlbum:album byArtist:artist inSize:@"400x400" withHandler:^(NSString *imgUrl) {
+                [self setAlbumArt:imgUrl];
+            }];
+        }
+    } withErrorHandler:^(NSError *error) {
+        [self setAlbumArt:nil];
     }];
+}
+
+- (void)setAlbumArt:(NSString *)url {
+    if(url) {
+        UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
+        [_coverArtView setImage:image];
+        [_coverArtView setAlpha:1.0f];
+        [_coverArtView setNeedsDisplay];
+    } else {
+        UIImage *image = [UIImage imageNamed: @"wmua-320.png"];
+        [_coverArtView setImage:image];
+        [_coverArtView setAlpha:0.5f];
+        [_coverArtView setNeedsDisplay];
+    }
 }
 
 - (void)alert:(NSString *)title withMessage:(NSString *)message
