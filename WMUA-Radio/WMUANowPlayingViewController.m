@@ -165,20 +165,18 @@
         bgTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
         if(buffering) {
             [_bufferingIndicator startAnimating];
-            [_statusLabel setText:@"Buffering..."];
+            [_playButton setTitle:@"Buffering... (Tap to Stop)" forState:UIControlStateNormal];
         } else {
             [_bufferingIndicator stopAnimating];
-            [_statusLabel setText:@"Streaming Live"];
+            [_playButton setTitle:@"Stop Live Streaming" forState:UIControlStateNormal];
         }
-        [_playButton setTitle:@"Stop" forState:UIControlStateNormal];
         UIImage *stopIcon = [[UIImage imageNamed:@"stop"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [_playButton setImage:stopIcon forState:UIControlStateNormal];
         [self refreshNowAiring];
-        // TODO refresh recent plays in separate view??
+        // TODO refresh recent plays in the other view??
     } else {
         [_bufferingIndicator stopAnimating];
-        [_statusLabel setText:@"Stopped"];
-        [_playButton setTitle:@"Listen Live" forState:UIControlStateNormal];
+        [_playButton setTitle:@"Listen Live Now" forState:UIControlStateNormal];
         UIImage *playIcon = [[UIImage imageNamed:@"play"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [_playButton setImage:playIcon forState:UIControlStateNormal];
         // End the background task so the application can be removed from memory properly
