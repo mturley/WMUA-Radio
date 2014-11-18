@@ -7,7 +7,6 @@
 //
 
 #import "WMUANowPlayingViewController.h"
-#import "WMUATrackTableViewCell.h"
 #import "WMUADataSource.h"
 
 #define STREAM_URL @"http://ice7.securenetsystems.net/WMUA"
@@ -35,11 +34,6 @@
     
     // Asynchronously load "Now Airing" data and display it.
     [self refreshNowAiring];
-    
-    // Asychronously load "Recent Plays" data and display it.
-    UINib *cellNib = [UINib nibWithNibName:@"WMUATrackTableViewCell" bundle:nil];
-    [self.recentPlaysTable registerNib:cellNib forCellReuseIdentifier:@"TrackCell"];
-    [self refreshRecentPlays];
     
     // Register for notifications of audio session interruption.
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -180,7 +174,7 @@
         UIImage *stopIcon = [[UIImage imageNamed:@"stop"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [_playButton setImage:stopIcon forState:UIControlStateNormal];
         [self refreshNowAiring];
-        [self refreshRecentPlays];
+        // TODO refresh recent plays in separate view??
     } else {
         [_bufferingIndicator stopAnimating];
         [_statusLabel setText:@"Stopped"];
@@ -214,21 +208,6 @@
     }];
 }
 
-- (IBAction)refreshRecentPlays:(id)sender {
-    [self refreshRecentPlays];
-}
-
-- (void)refreshRecentPlays {
-    recentPlays = [[NSArray alloc] init];
-    [self.recentPlaysTable reloadData];
-    [WMUADataSource getLast10Plays:^(NSDictionary *dict) {
-        recentPlays = dict[@"channel"][@"item"];
-        [self.recentPlaysTable reloadData];
-    } withErrorHandler:^(NSError *error) {
-        NSLog(@"ERROR FETCHING XML FILE!");
-    }];
-}
-
 - (void)alert:(NSString *)title withMessage:(NSString *)message
 {
     // TODO deal with the UIAlertView deprecation in iOS 8?
@@ -240,38 +219,5 @@
     [alert show];
 }
 
-# pragma mark -
-# pragma mark Recent Plays Table View Methods
-
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WMUATrackTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrackCell"];
-    // Initialize the cell if it has not yet been created
-    if(!cell) {
-        cell = [[WMUATrackTableViewCell alloc] init];
-    }
-    NSDictionary *trackDict = [recentPlays objectAtIndex:indexPath.row];
-    [cell.playNumLabel setText:trackDict[@"title"]];
-    [cell.timeLabel setText:trackDict[@"ra:time"]];
-    [cell.trackLabel setText:trackDict[@"ra:track"]];
-    [cell.artistLabel setText:trackDict[@"ra:artist"]];
-    [cell.albumLabel setText:trackDict[@"ra:album"]];
-    [cell.genreLabel setText:trackDict[@"ra:genre"]];
-    return cell;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section {
-    return [recentPlays count];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView
-heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
-}
 
 @end
