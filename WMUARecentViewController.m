@@ -36,7 +36,6 @@
 }
 
 - (void)refreshRecentPlays {
-    NSLog(@"RefreshRecentPlays method called");
     recentPlays = [[NSArray alloc] init];
     [self.recentPlaysTable reloadData];
     [WMUADataSource getLast10Plays:^(NSDictionary *dict) {

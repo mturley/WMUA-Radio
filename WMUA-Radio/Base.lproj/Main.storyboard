@@ -404,49 +404,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsj-LG-ngw">
-                                <rect key="frame" x="16" y="23" width="107" height="21"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Last 10 Plays">
-                                        <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
-                                            <font key="NSOriginalFont" size="17" name="HelveticaNeue-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            <integer key="NSUnderline" value="1"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sMb-HH-44w">
-                                <rect key="frame" x="0.0" y="52" width="320" height="467"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Vne-tq-FwZ" id="Kwb-GG-Z42"/>
                                     <outlet property="delegate" destination="Vne-tq-FwZ" id="YGL-NM-F54"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ap3-a7-uLO">
-                                <rect key="frame" x="251" y="20" width="53" height="30"/>
-                                <state key="normal" title="Refresh">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="refreshButtonPressed:" destination="Vne-tq-FwZ" eventType="touchUpInside" id="Fpg-po-eIn"/>
-                                </connections>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edg-og-Sun">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Recent Plays" id="6XF-fg-PrB">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="chi-06-8Nc">
+                                            <connections>
+                                                <action selector="refreshButtonPressed:" destination="Vne-tq-FwZ" id="QEZ-Mu-NHc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bsj-LG-ngw" firstAttribute="top" secondItem="cGO-w1-udX" secondAttribute="bottom" constant="3" id="3H7-tE-3Mu"/>
-                            <constraint firstAttribute="trailing" secondItem="sMb-HH-44w" secondAttribute="trailing" id="6IL-37-h8b"/>
-                            <constraint firstItem="bsj-LG-ngw" firstAttribute="leading" secondItem="omy-ts-WoS" secondAttribute="leadingMargin" id="JAK-yh-HLt"/>
-                            <constraint firstItem="sMb-HH-44w" firstAttribute="bottom" secondItem="5ay-dH-CeJ" secondAttribute="top" id="KHT-L2-oHK"/>
-                            <constraint firstItem="Ap3-a7-uLO" firstAttribute="top" secondItem="cGO-w1-udX" secondAttribute="bottom" id="Zqs-H8-vXh"/>
-                            <constraint firstItem="Ap3-a7-uLO" firstAttribute="trailing" secondItem="omy-ts-WoS" secondAttribute="trailingMargin" id="kpR-e9-l5y"/>
-                            <constraint firstItem="sMb-HH-44w" firstAttribute="leading" secondItem="omy-ts-WoS" secondAttribute="leading" id="nFP-eD-Crz"/>
-                            <constraint firstItem="sMb-HH-44w" firstAttribute="top" secondItem="bsj-LG-ngw" secondAttribute="bottom" constant="8" symbolic="YES" id="qDG-zN-zv9"/>
+                            <constraint firstItem="edg-og-Sun" firstAttribute="leading" secondItem="omy-ts-WoS" secondAttribute="leading" id="4sH-UB-xfn"/>
+                            <constraint firstItem="sMb-HH-44w" firstAttribute="top" secondItem="edg-og-Sun" secondAttribute="bottom" id="685-GX-LA6"/>
+                            <constraint firstAttribute="trailing" secondItem="edg-og-Sun" secondAttribute="trailing" id="7QX-on-YQN"/>
+                            <constraint firstItem="edg-og-Sun" firstAttribute="top" secondItem="cGO-w1-udX" secondAttribute="bottom" id="B3o-aE-CQb"/>
+                            <constraint firstItem="sMb-HH-44w" firstAttribute="bottom" secondItem="5ay-dH-CeJ" secondAttribute="top" id="BOH-n2-TpA"/>
+                            <constraint firstItem="sMb-HH-44w" firstAttribute="trailing" secondItem="edg-og-Sun" secondAttribute="trailing" id="JKG-v3-fFD"/>
+                            <constraint firstItem="sMb-HH-44w" firstAttribute="leading" secondItem="edg-og-Sun" secondAttribute="leading" id="gN7-BG-3Gd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Recent" image="recent" id="x23-DV-eqi"/>
