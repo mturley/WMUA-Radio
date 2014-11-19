@@ -202,7 +202,11 @@
     [WMUADataSource getShowOnAir:^(NSDictionary *dict) {
         NSDictionary *showDict = dict[@"channel"][@"item"];
         [_airingShowLabel setText:showDict[@"ra:showname"]];
-        [_airingDJLabel setText:[showDict[@"ra:showdj"] componentsJoinedByString:@", "]];
+        if([showDict[@"ra:showdj"] isKindOfClass:[NSArray class]]) {
+            [_airingDJLabel setText:[showDict[@"ra:showdj"] componentsJoinedByString:@", "]];
+        } else {
+            [_airingDJLabel setText:showDict[@"ra:showdj"]];
+        }
         [_airingScheduleLabel setText:showDict[@"ra:showschedule"]];
     } withErrorHandler:^(NSError *error) {
         [_airingShowLabel setText:@"(No Data Available)"];
@@ -234,11 +238,13 @@
         [_coverArtView setImage:image];
         [_coverArtView setAlpha:1.0f];
         [_coverArtView setNeedsDisplay];
+        [self.view setNeedsDisplay];
     } else {
         UIImage *image = [UIImage imageNamed: @"wmua-320.png"];
         [_coverArtView setImage:image];
         [_coverArtView setAlpha:0.5f];
         [_coverArtView setNeedsDisplay];
+        [self.view setNeedsDisplay];
     }
 }
 
