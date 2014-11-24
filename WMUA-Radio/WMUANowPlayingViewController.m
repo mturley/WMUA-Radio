@@ -197,8 +197,8 @@
 - (void)refreshNowAiring {
     // Display current show on air
     [_airingShowLabel setText:@"Loading..."];
-    [_airingDJLabel setText:@"Loading..."];
-    [_airingScheduleLabel setText:@"Loading..."];
+    [_airingDJLabel setText:@""];
+    [_airingScheduleLabel setText:@""];
     [WMUADataSource getShowOnAir:^(NSDictionary *dict) {
         NSDictionary *showDict = dict[@"channel"][@"item"];
         [_airingShowLabel setText:showDict[@"ra:showname"]];
@@ -210,25 +210,35 @@
         [_airingScheduleLabel setText:showDict[@"ra:showschedule"]];
     } withErrorHandler:^(NSError *error) {
         [_airingShowLabel setText:@"(No Data Available)"];
-        [_airingDJLabel setText:@"(No Data Available)"];
-        [_airingScheduleLabel setText:@"(No Data Available)"];
+        [_airingDJLabel setText:@""];
+        [_airingScheduleLabel setText:@""];
         [self setAlbumArt:nil];
     }];
     
     // Display latest track album art
+    [_currentTrackArtistLabel setText:@"Loading..."];
+    [_currentTrackNameLabel setText:@""];
     [WMUADataSource getLast10Plays:^(NSDictionary *dict) {
         NSDictionary *latestTrack = dict[@"channel"][@"item"][0];
         NSString *album = latestTrack[@"ra:album"];
         NSString *artist = latestTrack[@"ra:artist"];
+        NSString *track = latestTrack[@"ra:track"];
+        [_currentTrackNameLabel setText:track];
+        [_currentTrackArtistLabel setText:artist];
         if(![album isEqualToString: currentAlbum] || ![artist isEqualToString: currentArtist]) {
             currentAlbum = album;
             currentArtist = artist;
-            [WMUADataSource getArtworkUrlForAlbum:album byArtist:artist inSize:@"400x400" withHandler:^(NSString *imgUrl) {
+            [WMUADataSource getArtworkUrlForAlbum:album
+                                         byArtist:artist
+                                           inSize:@"400x400"
+                                      withHandler:^(NSString *imgUrl) {
                 [self setAlbumArt:imgUrl];
             }];
         }
     } withErrorHandler:^(NSError *error) {
         [self setAlbumArt:nil];
+        [_currentTrackArtistLabel setText:@"(No Data Available)"];
+        [_currentTrackNameLabel setText:@""];
     }];
 }
 

@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,6 +22,9 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wmua-320.png" translatesAutoresizingMaskIntoConstraints="NO" id="k3N-Yw-dcj">
                                 <rect key="frame" x="0.0" y="199" width="320" height="320"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" updatesFrequently="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="320" id="A2y-qn-oLv"/>
                                     <constraint firstAttribute="width" constant="320" id="M17-gc-GOz"/>
@@ -85,6 +90,66 @@
                                 <rect key="frame" x="34" y="157" width="20" height="20"/>
                                 <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyz-Ku-Nuz" userLabel="Current Track View">
+                                <rect key="frame" x="0.0" y="467" width="320" height="52"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="T5x-IA-xEw">
+                                        <rect key="frame" x="214" y="0.0" width="90" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="XN2-8K-3hd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <state key="normal" title="View on iTunes Store"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUJ-CL-mXC">
+                                        <rect key="frame" x="16" y="6" width="201" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="201" id="5vh-jX-eak"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH9-fh-mdo">
+                                        <rect key="frame" x="16" y="26" width="201" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="T5x-IA-xEw" firstAttribute="top" secondItem="jyz-Ku-Nuz" secondAttribute="top" id="0Ue-vg-Dxd"/>
+                                    <constraint firstItem="hUJ-CL-mXC" firstAttribute="top" secondItem="jyz-Ku-Nuz" secondAttribute="top" constant="6" id="1Og-N6-8yl"/>
+                                    <constraint firstItem="hUJ-CL-mXC" firstAttribute="leading" secondItem="jyz-Ku-Nuz" secondAttribute="leading" constant="16" id="6sq-ty-e6s"/>
+                                    <constraint firstItem="hH9-fh-mdo" firstAttribute="centerX" secondItem="hUJ-CL-mXC" secondAttribute="centerX" id="6wS-nQ-LnQ"/>
+                                    <constraint firstItem="T5x-IA-xEw" firstAttribute="top" secondItem="jyz-Ku-Nuz" secondAttribute="top" id="71u-SQ-sK9"/>
+                                    <constraint firstItem="hUJ-CL-mXC" firstAttribute="top" secondItem="jyz-Ku-Nuz" secondAttribute="top" constant="6" id="7cP-sr-YqX"/>
+                                    <constraint firstAttribute="trailing" secondItem="T5x-IA-xEw" secondAttribute="trailing" constant="16" id="8WD-Bg-gHd"/>
+                                    <constraint firstAttribute="bottom" secondItem="hH9-fh-mdo" secondAttribute="bottom" constant="5" id="AfO-SO-z8v"/>
+                                    <constraint firstItem="T5x-IA-xEw" firstAttribute="top" secondItem="jyz-Ku-Nuz" secondAttribute="top" id="Bt0-fa-vmm"/>
+                                    <constraint firstItem="hH9-fh-mdo" firstAttribute="leading" secondItem="jyz-Ku-Nuz" secondAttribute="leading" constant="16" id="Iwl-Wb-II1"/>
+                                    <constraint firstItem="hH9-fh-mdo" firstAttribute="top" secondItem="jyz-Ku-Nuz" secondAttribute="top" constant="26" id="K1P-Yz-cOp"/>
+                                    <constraint firstItem="hH9-fh-mdo" firstAttribute="leading" secondItem="hUJ-CL-mXC" secondAttribute="leading" id="LzI-Hr-GMJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="hH9-fh-mdo" secondAttribute="bottom" constant="5" id="T2g-3O-OTd"/>
+                                    <constraint firstItem="T5x-IA-xEw" firstAttribute="leading" secondItem="jyz-Ku-Nuz" secondAttribute="leading" constant="214" id="UkQ-e9-hNW"/>
+                                    <constraint firstAttribute="trailing" secondItem="T5x-IA-xEw" secondAttribute="trailing" constant="16" id="cKM-4W-WPf"/>
+                                    <constraint firstAttribute="bottom" secondItem="T5x-IA-xEw" secondAttribute="bottom" id="gEJ-6U-xFL"/>
+                                    <constraint firstItem="hH9-fh-mdo" firstAttribute="leading" secondItem="jyz-Ku-Nuz" secondAttribute="leading" constant="16" id="hsz-5q-10B"/>
+                                    <constraint firstAttribute="bottom" secondItem="hUJ-CL-mXC" secondAttribute="bottom" constant="25" id="iKg-MV-0Ce"/>
+                                    <constraint firstItem="hH9-fh-mdo" firstAttribute="leading" secondItem="jyz-Ku-Nuz" secondAttribute="leading" constant="16" id="jSx-oH-1Dg"/>
+                                    <constraint firstItem="T5x-IA-xEw" firstAttribute="firstBaseline" secondItem="hUJ-CL-mXC" secondAttribute="baseline" id="ldR-w2-8JR"/>
+                                    <constraint firstItem="hUJ-CL-mXC" firstAttribute="leading" secondItem="jyz-Ku-Nuz" secondAttribute="leading" constant="16" id="oUL-KV-pss"/>
+                                    <constraint firstItem="T5x-IA-xEw" firstAttribute="centerY" secondItem="jyz-Ku-Nuz" secondAttribute="centerY" id="oUY-QJ-Xgl"/>
+                                    <constraint firstItem="hUJ-CL-mXC" firstAttribute="firstBaseline" secondItem="T5x-IA-xEw" secondAttribute="firstBaseline" id="pwg-WN-1Pb"/>
+                                    <constraint firstItem="hUJ-CL-mXC" firstAttribute="leading" secondItem="jyz-Ku-Nuz" secondAttribute="leading" constant="16" id="qpT-9f-S6g"/>
+                                    <constraint firstItem="hUJ-CL-mXC" firstAttribute="top" secondItem="jyz-Ku-Nuz" secondAttribute="top" constant="6" id="sG3-NX-V5Z"/>
+                                    <constraint firstItem="hUJ-CL-mXC" firstAttribute="trailing" secondItem="hH9-fh-mdo" secondAttribute="trailing" id="sp0-rb-kFN"/>
+                                    <constraint firstAttribute="bottom" secondItem="T5x-IA-xEw" secondAttribute="bottom" id="szo-se-GYl"/>
+                                    <constraint firstItem="hH9-fh-mdo" firstAttribute="top" secondItem="jyz-Ku-Nuz" secondAttribute="top" constant="26" id="uuL-ud-TJz"/>
+                                    <constraint firstItem="T5x-IA-xEw" firstAttribute="top" secondItem="jyz-Ku-Nuz" secondAttribute="top" id="vBh-16-oLA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -102,6 +167,7 @@
                             <constraint firstItem="qzk-5E-EFX" firstAttribute="leading" secondItem="DVQ-YP-34I" secondAttribute="leading" id="Ld0-l6-kNe"/>
                             <constraint firstItem="8Mn-UO-bve" firstAttribute="trailing" secondItem="qzk-5E-EFX" secondAttribute="trailing" id="MD6-mO-gDC"/>
                             <constraint firstItem="1bg-L8-e0y" firstAttribute="top" secondItem="gRu-G0-ZZb" secondAttribute="bottom" constant="8" symbolic="YES" id="NJh-OH-wav"/>
+                            <constraint firstItem="jyz-Ku-Nuz" firstAttribute="leading" secondItem="k3N-Yw-dcj" secondAttribute="leading" id="OBp-1w-OHi"/>
                             <constraint firstItem="1bg-L8-e0y" firstAttribute="centerX" secondItem="gRu-G0-ZZb" secondAttribute="centerX" id="VC9-UB-Zwj"/>
                             <constraint firstItem="k3N-Yw-dcj" firstAttribute="top" secondItem="8Mn-UO-bve" secondAttribute="bottom" constant="4" id="X4l-N0-CKj"/>
                             <constraint firstItem="NH0-YF-584" firstAttribute="leading" secondItem="07r-7N-rhG" secondAttribute="leading" id="aS9-Yi-PmP"/>
@@ -113,6 +179,7 @@
                             <constraint firstItem="8Mn-UO-bve" firstAttribute="leading" secondItem="qzk-5E-EFX" secondAttribute="leading" id="oR1-um-kEe"/>
                             <constraint firstItem="k3N-Yw-dcj" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="rrI-gk-Umv"/>
                             <constraint firstItem="gRu-G0-ZZb" firstAttribute="top" secondItem="9Ph-52-aUb" secondAttribute="bottom" constant="8" symbolic="YES" id="sNj-4W-53q"/>
+                            <constraint firstItem="jyz-Ku-Nuz" firstAttribute="bottom" secondItem="dtj-EO-iXF" secondAttribute="top" id="syJ-MA-GYK"/>
                             <constraint firstItem="qzk-5E-EFX" firstAttribute="leading" secondItem="1bg-L8-e0y" secondAttribute="trailing" constant="27" id="uw0-Bu-g18"/>
                         </constraints>
                     </view>
@@ -124,6 +191,10 @@
                         <outlet property="airingShowLabel" destination="DVQ-YP-34I" id="uFP-53-9jO"/>
                         <outlet property="bufferingIndicator" destination="1bg-L8-e0y" id="Uxh-yU-aX2"/>
                         <outlet property="coverArtView" destination="k3N-Yw-dcj" id="USp-xt-cDP"/>
+                        <outlet property="currentTrackArtistLabel" destination="hH9-fh-mdo" id="4x0-rG-98C"/>
+                        <outlet property="currentTrackBar" destination="jyz-Ku-Nuz" id="G7f-Bm-qoW"/>
+                        <outlet property="currentTrackNameLabel" destination="hUJ-CL-mXC" id="oE8-Fy-BjB"/>
+                        <outlet property="iTunesStoreButton" destination="T5x-IA-xEw" id="0zg-r1-kI9"/>
                         <outlet property="playButton" destination="9Ph-52-aUb" id="jr4-gq-mX8"/>
                     </connections>
                 </viewController>
