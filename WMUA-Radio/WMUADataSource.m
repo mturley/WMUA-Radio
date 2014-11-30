@@ -52,15 +52,18 @@
            withErrorHandler: errorHandler];
 }
 
-+ (void)getArtworkUrlForAlbum:(NSString *)albumName
++ (void)getItunesUrlsForTrack:(NSString *)trackName
+                      onAlbum:(NSString *)albumName
                      byArtist:(NSString *)artistName
-                       inSize:(NSString *)size        // size must be @"60x60", @"100x100", @"200x200", @"400x400" or @"600x600"
-                  withHandler:(void(^)(NSString *))handler
+                  withArtSize:(NSString *)size  // size must be @"60x60", @"100x100", @"200x200", @"400x400" or @"600x600"
+                  withHandler:(void(^)(NSDictionary *))handler
 {
     NSString *urlRoot = @"https://itunes.apple.com/search?term=";
-    NSString *termWithSpaces = [[artistName stringByAppendingString:@" "] stringByAppendingString:albumName];
+    NSString *tr = [trackName stringByAppendingString:@" "];
+    NSString *al = [albumName stringByAppendingString:@" "];
+    NSString *termWithSpaces = [tr stringByAppendingString:[al stringByAppendingString:artistName]];
     NSString *termWithPluses = [termWithSpaces stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    NSString *url = [[urlRoot stringByAppendingString:termWithPluses] stringByAppendingString:@"&entity=album"];
+    NSString *url = [[urlRoot stringByAppendingString:termWithPluses] stringByAppendingString:@"&entity=song"];
     
     NSDictionary *headers = @{@"accept": @"application/json"};
     
@@ -68,13 +71,19 @@
         [request setUrl:url];
         [request setHeaders:headers];
     }] asJsonAsync:^(UNIHTTPJsonResponse* response, NSError *error) {
-        void (^_handler)(NSString *) = [handler copy];
+        void (^_handler)(NSDictionary *) = [handler copy];
         if(!error) {
             NSDictionary *obj = response.body.object;
             if([obj[@"resultCount"] integerValue] > 0) {
                 NSString *rawArtworkUrl = obj[@"results"][0][@"artworkUrl100"];
                 NSString *sizedArtworkUrl = [rawArtworkUrl stringByReplacingOccurrencesOfString:@"100x100" withString:size];
-                _handler(sizedArtworkUrl);
+                NSDictionary *result = @{
+                  @"artworkUrl"    : sizedArtworkUrl,
+                  @"trackViewUrl"  : obj[@"results"][0][@"trackViewUrl"],
+                  @"albumViewUrl"  : obj[@"results"][0][@"collectionViewUrl"],
+                  @"artistViewUrl" : obj[@"results"][0][@"artistViewUrl"]
+                };
+                _handler(result);
             } else {
                 _handler(nil);
             }
@@ -83,6 +92,7 @@
         }
     }];
 }
+
 
 
 @end

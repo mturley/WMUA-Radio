@@ -98,6 +98,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <state key="normal" title="View on iTunes Store"/>
+                                        <connections>
+                                            <action selector="viewOnItunesStore:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="hcz-oY-zWf"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUJ-CL-mXC">
                                         <rect key="frame" x="16" y="6" width="201" height="21"/>
@@ -118,7 +121,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="hH9-fh-mdo" firstAttribute="top" secondItem="jyz-Ku-Nuz" secondAttribute="top" constant="26" id="IWg-yl-EI2"/>
                                     <constraint firstItem="hUJ-CL-mXC" firstAttribute="leading" secondItem="jyz-Ku-Nuz" secondAttribute="leading" constant="16" id="KqP-NZ-u2P"/>

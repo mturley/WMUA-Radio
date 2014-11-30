@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Radio.h"
 
-@interface WMUANowPlayingViewController : UIViewController <RadioDelegate> {
+@interface WMUANowPlayingViewController : UIViewController <RadioDelegate, UIActionSheetDelegate> {
     Radio *radio;
     BOOL playing;
     BOOL buffering;
     UIBackgroundTaskIdentifier bgTaskID;
     NSString *currentArtist;
     NSString *currentAlbum;
+    NSString *currentTrack;
+    NSDictionary *currentItunesUrls;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *playButton;

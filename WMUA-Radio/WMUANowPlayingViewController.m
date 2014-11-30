@@ -22,8 +22,9 @@
     playing = NO;
     buffering = NO;
     
-    currentAlbum = nil;
     currentArtist = nil;
+    currentAlbum = nil;
+    currentTrack = nil;
     
     // Tweaks to the UI that were unavailable in Interface Builder
     _playButton.layer.cornerRadius = 10;
@@ -223,16 +224,25 @@
         NSString *album = latestTrack[@"ra:album"];
         NSString *artist = latestTrack[@"ra:artist"];
         NSString *track = latestTrack[@"ra:track"];
+        currentTrack = track;
         [_currentTrackNameLabel setText:track];
         [_currentTrackArtistLabel setText:artist];
         if(![album isEqualToString: currentAlbum] || ![artist isEqualToString: currentArtist]) {
             currentAlbum = album;
             currentArtist = artist;
-            [WMUADataSource getArtworkUrlForAlbum:album
+            [WMUADataSource getItunesUrlsForTrack:track
+                                          onAlbum:album
                                          byArtist:artist
-                                           inSize:@"400x400"
-                                      withHandler:^(NSString *imgUrl) {
-                [self setAlbumArt:imgUrl];
+                                      withArtSize:@"400x400"
+                                      withHandler:^(NSDictionary *result) {
+                if(result) {
+                    currentItunesUrls = result;
+                    [_iTunesStoreButton setEnabled:YES];
+                    [self setAlbumArt:result[@"artworkUrl"]];
+                } else {
+                    [_iTunesStoreButton setEnabled:NO];
+                    [self setAlbumArt:nil];
+                }
             }];
         }
     } withErrorHandler:^(NSError *error) {
@@ -257,6 +267,38 @@
         [self.view setNeedsDisplay];
     }
 }
+
+- (IBAction)viewOnItunesStore:(id)sender {
+    NSString *trackButtonStr = [@"Track: " stringByAppendingString:currentTrack];
+    NSString *albumButtonStr = [@"Album: " stringByAppendingString:currentAlbum];
+    NSString *artistButtonStr = [@"Artist: " stringByAppendingString:currentArtist];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:trackButtonStr, albumButtonStr, artistButtonStr, nil];
+    [actionSheet showFromTabBar:self.tabBarController.tabBar];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0) { // Track
+        [self openItunesUrl:currentItunesUrls[@"trackViewUrl"]];
+    } else if(buttonIndex == 1) { // Album
+        [self openItunesUrl:currentItunesUrls[@"albumViewUrl"]];
+    } else if(buttonIndex == 2) { // Artist
+        [self openItunesUrl:currentItunesUrls[@"artistViewUrl"]];
+    }
+}
+
+- (void)openItunesUrl:(NSString *)url {
+    #if TARGET_IPHONE_SIMULATOR
+    NSLog(@"WMUA NOTE: iTunes Store is not supported on the iOS simulator. Unable to open Store page.");
+    #else
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    #endif
+}
+
 
 - (void)alert:(NSString *)title withMessage:(NSString *)message
 {

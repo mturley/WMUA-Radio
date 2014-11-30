@@ -20,9 +20,10 @@
 + (void)getLast10Plays:(void(^)(NSDictionary *))successHandler
     withErrorHandler:(void(^)(NSError *))errorHandler;
 
-+ (void)getArtworkUrlForAlbum:(NSString *)albumName
++ (void)getItunesUrlsForTrack:(NSString *)trackName
+                      onAlbum:(NSString *)albumName
                      byArtist:(NSString *)artistName
-                       inSize:(NSString *)size        // size must be @"60x60", @"100x100", @"200x200", @"400x400" or @"600x600"
-                  withHandler:(void(^)(NSString *))handler;
+                  withArtSize:(NSString *)size  // size must be @"60x60", @"100x100", @"200x200", @"400x400" or @"600x600"
+                  withHandler:(void(^)(NSDictionary *))handler;
 
 @end
