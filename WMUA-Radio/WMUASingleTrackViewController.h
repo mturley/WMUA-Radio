@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WMUASingleTrackViewController : UIViewController
+@interface WMUASingleTrackViewController : UIViewController {
+    NSDictionary *currentItunesUrls;
+}
 
 @property (strong, nonatomic) NSDictionary *trackDict;
+@property (weak, nonatomic) IBOutlet UILabel *trackLabel;
+@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
+@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
+@property (weak, nonatomic) IBOutlet UIButton *iTunesButton;
+@property (weak, nonatomic) IBOutlet UIImageView *coverArtView;
 
 @end
