@@ -215,6 +215,7 @@
 
 - (void)refreshNowAiring {
     // Display current show on air
+    [_bufferingIndicator startAnimating];
     [WMUADataSource getShowOnAir:^(NSDictionary *dict) {
         NSDictionary *showDict = dict[@"channel"][@"item"];
         [self addFadeAnimationTo:_airingShowLabel];
@@ -227,6 +228,9 @@
             [_airingDJLabel setText:showDict[@"ra:showdj"]];
         }
         [_airingScheduleLabel setText:showDict[@"ra:showschedule"]];
+        if(!buffering) {
+            [_bufferingIndicator stopAnimating];
+        }
     } withErrorHandler:^(NSError *error) {
         [self addFadeAnimationTo:_airingShowLabel];
         [self addFadeAnimationTo:_airingDJLabel];
@@ -235,6 +239,9 @@
         [_airingDJLabel setText:@""];
         [_airingScheduleLabel setText:@""];
         [self setAlbumArt:nil];
+        if(!buffering) {
+            [_bufferingIndicator stopAnimating];
+        }
     }];
     
     // Display latest track album art and labels
@@ -248,9 +255,14 @@
         [self addFadeAnimationTo:_currentTrackArtistLabel];
         [_currentTrackNameLabel setText:track];
         [_currentTrackArtistLabel setText:artist];
+        [_iTunesStoreButton setEnabled:YES];
+        [_iTunesStoreButton setNeedsDisplay];
+        [_currentTrackView setNeedsDisplay];
+        [self.view setNeedsDisplay];
         if(![album isEqualToString: currentAlbum] || ![artist isEqualToString: currentArtist]) {
             currentAlbum = album;
             currentArtist = artist;
+            currentItunesUrls = nil;
             [WMUADataSource getItunesUrlsForTrack:track
                                           onAlbum:album
                                          byArtist:artist
@@ -258,17 +270,17 @@
                                       withHandler:^(NSDictionary *result) {
                 if(result) {
                     currentItunesUrls = result;
-                    [_iTunesStoreButton setEnabled:YES];
                     [self setAlbumArt:result[@"artworkUrl"]];
                 } else {
-                    currentItunesUrls = nil;
-                    [_iTunesStoreButton setEnabled:NO];
                     [self setAlbumArt:nil];
                 }
                 [_iTunesStoreButton setNeedsDisplay];
                 [_currentTrackView setNeedsDisplay];
                 [self.view setNeedsDisplay];
             }];
+        }
+        if(!buffering) {
+            [_bufferingIndicator stopAnimating];
         }
     } withErrorHandler:^(NSError *error) {
         currentArtist = nil;
@@ -283,6 +295,9 @@
         [_iTunesStoreButton setNeedsDisplay];
         [_currentTrackView setNeedsDisplay];
         [self.view setNeedsDisplay];
+        if(!buffering) {
+            [_bufferingIndicator stopAnimating];
+        }
     }];
 }
 
@@ -315,7 +330,7 @@
                                                         otherButtonTitles:trackButtonStr, albumButtonStr, artistButtonStr, nil];
         [actionSheet showFromTabBar:self.tabBarController.tabBar];
     } else {
-        [self alert:@"Not Found" withMessage:@"This song could not be found on the iTunes Music Store."];
+        [self alert:@"Not Available on iTunes" withMessage:@"This song could not be found on the iTunes Music Store."];
     }
 }
 
