@@ -65,6 +65,21 @@
     buffering = NO;
     [radio updatePlay:YES];
     [self updatePlayerUI];
+    refreshTimer = [NSTimer scheduledTimerWithTimeInterval:10.0
+                                                    target:self
+                                                  selector:@selector(refreshTimerTick:)
+                                                  userInfo:nil
+                                                   repeats:YES];
+}
+
+- (void)refreshTimerTick:(NSTimer *)timer {
+    NSLog(@"== REFRESH TIMER TICK ==");
+    if(playing) {
+        [self refreshNowAiring];
+    } else {
+        [timer invalidate];
+        refreshTimer = nil;
+    }
 }
 
 - (void)stopRadio {
@@ -72,6 +87,8 @@
     buffering = NO;
     [radio updatePlay:NO];
     [self updatePlayerUI];
+    [refreshTimer invalidate];
+    refreshTimer = nil;
 }
 
 - (IBAction)toggleRadio:(id)sender {
@@ -221,7 +238,7 @@
         [self setAlbumArt:nil];
     }];
     
-    // Display latest track album art
+    // Display latest track album art and labels
     [WMUADataSource getLast10Plays:^(NSDictionary *dict) {
         NSDictionary *latestTrack = dict[@"channel"][@"item"][0];
         NSString *album = latestTrack[@"ra:album"];
@@ -253,6 +270,9 @@
             }];
         }
     } withErrorHandler:^(NSError *error) {
+        currentArtist = nil;
+        currentAlbum = nil;
+        currentTrack = nil;
         [_iTunesStoreButton setEnabled:NO];
         [self setAlbumArt:nil];
         [self addFadeAnimationTo:_currentTrackNameLabel];

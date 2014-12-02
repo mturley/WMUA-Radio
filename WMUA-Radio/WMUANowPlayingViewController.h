@@ -18,6 +18,7 @@
     NSString *currentAlbum;
     NSString *currentTrack;
     NSDictionary *currentItunesUrls;
+    NSTimer *refreshTimer;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
