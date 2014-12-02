@@ -8,6 +8,7 @@
 
 #import "WMUANowPlayingViewController.h"
 #import "WMUADataSource.h"
+#import "UIImageView+WebCache.h"
 
 #define STREAM_URL @"http://ice7.securenetsystems.net/WMUA"
 
@@ -197,11 +198,11 @@
 
 - (void)refreshNowAiring {
     // Display current show on air
-    [_airingShowLabel setText:@"Loading..."];
-    [_airingDJLabel setText:@""];
-    [_airingScheduleLabel setText:@""];
     [WMUADataSource getShowOnAir:^(NSDictionary *dict) {
         NSDictionary *showDict = dict[@"channel"][@"item"];
+        [self addFadeAnimationTo:_airingShowLabel];
+        [self addFadeAnimationTo:_airingDJLabel];
+        [self addFadeAnimationTo:_airingScheduleLabel];
         [_airingShowLabel setText:showDict[@"ra:showname"]];
         if([showDict[@"ra:showdj"] isKindOfClass:[NSArray class]]) {
             [_airingDJLabel setText:[showDict[@"ra:showdj"] componentsJoinedByString:@", "]];
@@ -210,6 +211,9 @@
         }
         [_airingScheduleLabel setText:showDict[@"ra:showschedule"]];
     } withErrorHandler:^(NSError *error) {
+        [self addFadeAnimationTo:_airingShowLabel];
+        [self addFadeAnimationTo:_airingDJLabel];
+        [self addFadeAnimationTo:_airingScheduleLabel];
         [_airingShowLabel setText:@"(No Data Available)"];
         [_airingDJLabel setText:@""];
         [_airingScheduleLabel setText:@""];
@@ -217,14 +221,14 @@
     }];
     
     // Display latest track album art
-    [_currentTrackArtistLabel setText:@"Loading..."];
-    [_currentTrackNameLabel setText:@""];
     [WMUADataSource getLast10Plays:^(NSDictionary *dict) {
         NSDictionary *latestTrack = dict[@"channel"][@"item"][0];
         NSString *album = latestTrack[@"ra:album"];
         NSString *artist = latestTrack[@"ra:artist"];
         NSString *track = latestTrack[@"ra:track"];
         currentTrack = track;
+        [self addFadeAnimationTo:_currentTrackNameLabel];
+        [self addFadeAnimationTo:_currentTrackArtistLabel];
         [_currentTrackNameLabel setText:track];
         [_currentTrackArtistLabel setText:artist];
         if(![album isEqualToString: currentAlbum] || ![artist isEqualToString: currentArtist]) {
@@ -247,6 +251,8 @@
         }
     } withErrorHandler:^(NSError *error) {
         [self setAlbumArt:nil];
+        [self addFadeAnimationTo:_currentTrackNameLabel];
+        [self addFadeAnimationTo:_currentTrackArtistLabel];
         [_currentTrackArtistLabel setText:@"(No Data Available)"];
         [_currentTrackNameLabel setText:@""];
     }];
@@ -254,18 +260,19 @@
 
 - (void)setAlbumArt:(NSString *)url {
     if(url) {
-        UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
-        [_coverArtView setImage:image];
-        [_coverArtView setAlpha:1.0f];
-        [_coverArtView setNeedsDisplay];
-        [self.view setNeedsDisplay];
+        [_coverArtView sd_setImageWithURL:[NSURL URLWithString:url]
+                         placeholderImage:[UIImage imageNamed:@"wmua-320.png"]
+                                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *url) {
+            [_coverArtView setAlpha:0.0f];
+            [UIView animateWithDuration:0.3 animations:^{
+                [_coverArtView setAlpha:1.0f];
+            }];
+        }];
     } else {
-        UIImage *image = [UIImage imageNamed: @"wmua-320.png"];
-        [_coverArtView setImage:image];
+        [_coverArtView setImage:[UIImage imageNamed: @"wmua-320.png"]];
         [_coverArtView setAlpha:0.5f];
-        [_coverArtView setNeedsDisplay];
-        [self.view setNeedsDisplay];
     }
+    [self.view setNeedsDisplay];
 }
 
 - (IBAction)viewOnItunesStore:(id)sender {
@@ -297,6 +304,15 @@
     #else
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     #endif
+}
+
+- (void)addFadeAnimationTo:(UIView *)view {
+    CATransition *transitionAnimation = [CATransition animation];
+    [transitionAnimation setType:kCATransitionFade];
+    [transitionAnimation setDuration:0.3f];
+    [transitionAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [transitionAnimation setFillMode:kCAFillModeBoth];
+    [view.layer addAnimation:transitionAnimation forKey:@"fadeAnimation"];
 }
 
 
