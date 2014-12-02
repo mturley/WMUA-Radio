@@ -27,7 +27,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *airingDJLabel;
 @property (weak, nonatomic) IBOutlet UILabel *airingScheduleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverArtView;
-@property (weak, nonatomic) IBOutlet UIView *currentTrackBar;
+@property (weak, nonatomic) IBOutlet UIView *onAirView;
+@property (weak, nonatomic) IBOutlet UIView *currentTrackView;
 @property (weak, nonatomic) IBOutlet UILabel *currentTrackNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentTrackArtistLabel;
 @property (weak, nonatomic) IBOutlet UIButton *iTunesStoreButton;

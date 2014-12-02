@@ -73,7 +73,6 @@
 }
 
 - (void)refreshTimerTick:(NSTimer *)timer {
-    NSLog(@"== REFRESH TIMER TICK ==");
     if(playing) {
         [self refreshNowAiring];
     } else {
@@ -262,10 +261,12 @@
                     [_iTunesStoreButton setEnabled:YES];
                     [self setAlbumArt:result[@"artworkUrl"]];
                 } else {
+                    currentItunesUrls = nil;
                     [_iTunesStoreButton setEnabled:NO];
                     [self setAlbumArt:nil];
                 }
-                [_currentTrackBar setNeedsDisplay];
+                [_iTunesStoreButton setNeedsDisplay];
+                [_currentTrackView setNeedsDisplay];
                 [self.view setNeedsDisplay];
             }];
         }
@@ -279,7 +280,8 @@
         [self addFadeAnimationTo:_currentTrackArtistLabel];
         [_currentTrackArtistLabel setText:@"(No Data Available)"];
         [_currentTrackNameLabel setText:@""];
-        [_currentTrackBar setNeedsDisplay];
+        [_iTunesStoreButton setNeedsDisplay];
+        [_currentTrackView setNeedsDisplay];
         [self.view setNeedsDisplay];
     }];
 }
@@ -302,7 +304,7 @@
 }
 
 - (IBAction)viewOnItunesStore:(id)sender {
-    if(currentTrack && currentAlbum && currentArtist) {
+    if(currentItunesUrls && currentTrack && currentAlbum && currentArtist) {
         NSString *trackButtonStr = [@"Track: " stringByAppendingString:currentTrack];
         NSString *albumButtonStr = [@"Album: " stringByAppendingString:currentAlbum];
         NSString *artistButtonStr = [@"Artist: " stringByAppendingString:currentArtist];
@@ -312,6 +314,8 @@
                                                    destructiveButtonTitle:nil
                                                         otherButtonTitles:trackButtonStr, albumButtonStr, artistButtonStr, nil];
         [actionSheet showFromTabBar:self.tabBarController.tabBar];
+    } else {
+        [self alert:@"Not Found" withMessage:@"This song could not be found on the iTunes Music Store."];
     }
 }
 
