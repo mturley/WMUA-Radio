@@ -44,6 +44,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(audioSessionInterruptionHappened:)
                                                  name:AVAudioSessionInterruptionNotification object:nil];
+    
+    // Send album art to back
+    coverArtInForeground = NO;
+    [[_coverArtView superview] sendSubviewToBack:_coverArtView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -316,6 +320,31 @@
         [_coverArtView setAlpha:0.5f];
     }
     [self.view setNeedsDisplay];
+}
+
+- (void)sendAlbumArtToBack {
+    [[_coverArtView superview] sendSubviewToBack:_coverArtView];
+    coverArtInForeground = NO;
+}
+
+- (void)bringAlbumArtToFront {
+    if(currentItunesUrls) { // if there is album art to bring to the front, i.e. the album art url is known
+        [[_coverArtView superview] bringSubviewToFront:_coverArtView];
+        coverArtInForeground = YES;
+        [NSTimer scheduledTimerWithTimeInterval:5.0
+                                         target:self
+                                       selector:@selector(sendAlbumArtToBack)
+                                       userInfo:nil
+                                        repeats:NO];
+    }
+}
+
+- (IBAction)albumArtTapped:(UITapGestureRecognizer *)sender {
+    if(coverArtInForeground) {
+        [self sendAlbumArtToBack];
+    } else {
+        [self bringAlbumArtToFront];
+    }
 }
 
 - (IBAction)viewOnItunesStore:(id)sender {

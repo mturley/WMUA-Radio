@@ -19,6 +19,7 @@
     NSString *currentTrack;
     NSDictionary *currentItunesUrls;
     NSTimer *refreshTimer;
+    BOOL coverArtInForeground;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *playButton;

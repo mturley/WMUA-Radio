@@ -18,16 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wmua-320.png" translatesAutoresizingMaskIntoConstraints="NO" id="k3N-Yw-dcj">
-                                <rect key="frame" x="0.0" y="199" width="320" height="320"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" image="YES" updatesFrequently="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="3v8-3V-vJ1"/>
-                                    <constraint firstAttribute="width" constant="320" id="zcV-5O-Br2"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="07r-7N-rhG">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -151,6 +141,20 @@
                                     <constraint firstAttribute="width" constant="320" id="n5Y-g1-ZH8"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wmua-320.png" translatesAutoresizingMaskIntoConstraints="NO" id="k3N-Yw-dcj" userLabel="Album Art View">
+                                <rect key="frame" x="0.0" y="199" width="320" height="320"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" updatesFrequently="YES"/>
+                                </accessibility>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="3v8-3V-vJ1"/>
+                                    <constraint firstAttribute="width" constant="320" id="zcV-5O-Br2"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="J8a-TL-5KF" appends="YES" id="cKo-N4-yfH"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -185,6 +189,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="J8a-TL-5KF">
+                    <connections>
+                        <action selector="albumArtTapped:" destination="CZ4-MO-1fc" id="lKl-OI-Uap"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="596" y="-139"/>
         </scene>
