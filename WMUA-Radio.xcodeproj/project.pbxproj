@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		080CCBA81A1B72B300144266 /* WMUAAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 080CCBA71A1B72B300144266 /* WMUAAboutViewController.m */; };
-		080CCBAB1A1B770F00144266 /* WMUATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 080CCBAA1A1B770F00144266 /* WMUATabBarController.m */; };
 		082841381A08731B00B094C5 /* LICENCE.md in Sources */ = {isa = PBXBuildFile; fileRef = 082841351A08731B00B094C5 /* LICENCE.md */; };
 		082841391A08731B00B094C5 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 082841371A08731B00B094C5 /* XMLDictionary.m */; };
 		082841441A08A54100B094C5 /* WMUATrackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 082841421A08A54100B094C5 /* WMUATrackTableViewCell.m */; };
@@ -52,8 +51,6 @@
 /* Begin PBXFileReference section */
 		080CCBA61A1B72B300144266 /* WMUAAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMUAAboutViewController.h; sourceTree = "<group>"; };
 		080CCBA71A1B72B300144266 /* WMUAAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMUAAboutViewController.m; sourceTree = "<group>"; };
-		080CCBA91A1B770E00144266 /* WMUATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMUATabBarController.h; sourceTree = "<group>"; };
-		080CCBAA1A1B770F00144266 /* WMUATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMUATabBarController.m; sourceTree = "<group>"; };
 		082841351A08731B00B094C5 /* LICENCE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENCE.md; sourceTree = "<group>"; };
 		082841361A08731B00B094C5 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		082841371A08731B00B094C5 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
@@ -180,8 +177,6 @@
 		0855986219FD850C0089C8FE /* WMUA-Radio */ = {
 			isa = PBXGroup;
 			children = (
-				080CCBA91A1B770E00144266 /* WMUATabBarController.h */,
-				080CCBAA1A1B770F00144266 /* WMUATabBarController.m */,
 				0855986B19FD850D0089C8FE /* WMUAAppDelegate.h */,
 				0855986C19FD850D0089C8FE /* WMUAAppDelegate.m */,
 				0855986E19FD850D0089C8FE /* Main.storyboard */,
@@ -407,7 +402,6 @@
 				08E15A1A1A1ABDC500E41042 /* WMUADataSource.m in Sources */,
 				082841391A08731B00B094C5 /* XMLDictionary.m in Sources */,
 				08F048601A1B0B85009079A6 /* WMUARecentViewController.m in Sources */,
-				080CCBAB1A1B770F00144266 /* WMUATabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
