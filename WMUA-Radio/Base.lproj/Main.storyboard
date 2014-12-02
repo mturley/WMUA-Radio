@@ -156,18 +156,31 @@
                                     <outletCollection property="gestureRecognizers" destination="J8a-TL-5KF" appends="YES" id="cKo-N4-yfH"/>
                                 </connections>
                             </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The last play was submitted by the DJ over 10 minutes ago; streaming content may be different from what is displayed." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjL-JH-ERR">
+                                <rect key="frame" x="16" y="205" width="288" height="70"/>
+                                <color key="backgroundColor" red="1" green="0.84712581929999997" blue="0.1980794102" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="3ua-99-cAK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="k3N-Yw-dcj" secondAttribute="trailing" id="0ni-df-5aG"/>
                             <constraint firstAttribute="trailing" secondItem="0zg-SZ-4UC" secondAttribute="trailing" id="3Kv-l6-Uxj"/>
                             <constraint firstItem="NH0-YF-584" firstAttribute="top" secondItem="s9W-kb-ARv" secondAttribute="bottom" id="7Zx-ga-ydC"/>
+                            <constraint firstItem="BjL-JH-ERR" firstAttribute="top" secondItem="0zg-SZ-4UC" secondAttribute="bottom" constant="5" id="IGb-D2-TCi"/>
                             <constraint firstAttribute="trailing" secondItem="NH0-YF-584" secondAttribute="trailing" id="Icb-Ih-8gK"/>
                             <constraint firstItem="jyz-Ku-Nuz" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leadingMargin" constant="-16" id="SGo-Zy-diR"/>
                             <constraint firstItem="0zg-SZ-4UC" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="T3A-H9-5E8"/>
                             <constraint firstItem="NH0-YF-584" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="TD2-Z7-xaB"/>
                             <constraint firstItem="k3N-Yw-dcj" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="Tvy-9f-vhd"/>
                             <constraint firstItem="0zg-SZ-4UC" firstAttribute="top" secondItem="NH0-YF-584" secondAttribute="bottom" id="UhD-Qe-RY8"/>
+                            <constraint firstItem="BjL-JH-ERR" firstAttribute="trailing" secondItem="2VE-Yg-loa" secondAttribute="trailingMargin" id="Wwz-dV-aCQ"/>
+                            <constraint firstItem="BjL-JH-ERR" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leadingMargin" id="XOe-ki-f3s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jyz-Ku-Nuz" secondAttribute="trailing" constant="-16" id="YCW-YD-Srh"/>
                             <constraint firstItem="dtj-EO-iXF" firstAttribute="top" secondItem="jyz-Ku-Nuz" secondAttribute="bottom" id="uHj-h6-LTf"/>
                             <constraint firstItem="dtj-EO-iXF" firstAttribute="top" secondItem="k3N-Yw-dcj" secondAttribute="bottom" id="wGd-Wf-ZrH"/>
@@ -185,6 +198,7 @@
                         <outlet property="currentTrackNameLabel" destination="hUJ-CL-mXC" id="oE8-Fy-BjB"/>
                         <outlet property="currentTrackView" destination="jyz-Ku-Nuz" id="ANG-Sz-yl6"/>
                         <outlet property="iTunesStoreButton" destination="T5x-IA-xEw" id="0zg-r1-kI9"/>
+                        <outlet property="lateWarningLabel" destination="BjL-JH-ERR" id="9Fa-h2-aQt"/>
                         <outlet property="onAirView" destination="0zg-SZ-4UC" id="e34-sM-7Wk"/>
                         <outlet property="playButton" destination="9Ph-52-aUb" id="jr4-gq-mX8"/>
                     </connections>

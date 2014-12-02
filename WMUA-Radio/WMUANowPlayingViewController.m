@@ -31,6 +31,9 @@
     _playButton.layer.cornerRadius = 10;
     _playButton.layer.borderWidth = 0.5f;
     _playButton.layer.borderColor = [_playButton tintColor].CGColor;
+    _lateWarningLabel.layer.cornerRadius = 10;
+    _lateWarningLabel.layer.masksToBounds = YES;
+    _lateWarningLabel.layer.shouldRasterize = YES;
     
     // Allocate, connect, and start the Radio streamer.
     radio = [[Radio alloc] init];
@@ -234,6 +237,13 @@
         [_airingScheduleLabel setText:showDict[@"ra:showschedule"]];
         if(!buffering) {
             [_bufferingIndicator stopAnimating];
+        }
+        if(showDict[@"ra:latewarning"] && ![showDict[@"ra:latewarning"] isEqualToString:@""]) {
+            [self addFadeAnimationTo:_lateWarningLabel];
+            [_lateWarningLabel setHidden: NO];
+        } else {
+            [self addFadeAnimationTo:_lateWarningLabel];
+            [_lateWarningLabel setHidden: YES];
         }
     } withErrorHandler:^(NSError *error) {
         [self addFadeAnimationTo:_airingShowLabel];

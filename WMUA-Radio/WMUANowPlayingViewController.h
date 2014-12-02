@@ -33,5 +33,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentTrackNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentTrackArtistLabel;
 @property (weak, nonatomic) IBOutlet UIButton *iTunesStoreButton;
+@property (weak, nonatomic) IBOutlet UILabel *lateWarningLabel;
     
 @end
