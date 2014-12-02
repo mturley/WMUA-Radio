@@ -374,7 +374,7 @@
 
 - (void)openItunesUrl:(NSString *)url {
     #if TARGET_IPHONE_SIMULATOR
-    NSLog(@"WMUA NOTE: iTunes Store is not supported on the iOS simulator. Unable to open Store page.");
+    [self alert:@"No iTunes Store on Simulator" withMessage:@"The iTunes Store is not supported on the iOS Simulator. On a real device, the iTunes Store app would open instead of this message."];
     #else
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     #endif
