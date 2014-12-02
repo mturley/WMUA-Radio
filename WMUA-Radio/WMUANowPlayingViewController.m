@@ -328,15 +328,13 @@
 }
 
 - (void)bringAlbumArtToFront {
-    if(currentItunesUrls) { // if there is album art to bring to the front, i.e. the album art url is known
-        [[_coverArtView superview] bringSubviewToFront:_coverArtView];
-        coverArtInForeground = YES;
-        [NSTimer scheduledTimerWithTimeInterval:5.0
-                                         target:self
-                                       selector:@selector(sendAlbumArtToBack)
-                                       userInfo:nil
-                                        repeats:NO];
-    }
+    [[_coverArtView superview] bringSubviewToFront:_coverArtView];
+    coverArtInForeground = YES;
+    [NSTimer scheduledTimerWithTimeInterval:5.0
+                                     target:self
+                                   selector:@selector(sendAlbumArtToBack)
+                                   userInfo:nil
+                                    repeats:NO];
 }
 
 - (IBAction)albumArtTapped:(UITapGestureRecognizer *)sender {
