@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wmua-320.png" translatesAutoresizingMaskIntoConstraints="NO" id="k3N-Yw-dcj">
+                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k3N-Yw-dcj">
                                 <rect key="frame" x="0.0" y="199" width="320" height="320"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" image="YES" updatesFrequently="YES"/>
@@ -484,7 +484,6 @@
         <image name="play" width="32" height="32"/>
         <image name="recent" width="32" height="32"/>
         <image name="schedule" width="32" height="32"/>
-        <image name="wmua-320.png" width="320" height="320"/>
         <image name="wmuabanner.jpg" width="840" height="195"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
