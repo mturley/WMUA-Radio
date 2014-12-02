@@ -9,6 +9,7 @@
 #import "WMUARecentViewController.h"
 #import "WMUATrackTableViewCell.h"
 #import "WMUADataSource.h"
+#import "WMUASingleTrackViewController.h"
 
 @interface WMUARecentViewController ()
 
@@ -36,6 +37,10 @@
     [self.refreshControl addTarget:self action:@selector(refreshRecentPlays) forControlEvents:UIControlEventValueChanged];
     tableViewController.refreshControl = self.refreshControl;
 
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [_recentPlaysTable deselectRowAtIndexPath:[_recentPlaysTable indexPathForSelectedRow] animated: YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,6 +98,13 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 100;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *trackDict = [recentPlays objectAtIndex:indexPath.row];
+    WMUASingleTrackViewController *trackViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SingleTrackViewController"];
+    trackViewController.trackDict = trackDict;
+    [self.navigationController pushViewController:trackViewController animated:YES];
+}
 
 
 /*
