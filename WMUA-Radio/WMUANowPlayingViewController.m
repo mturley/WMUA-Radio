@@ -244,7 +244,7 @@
         if(!buffering) {
             [_bufferingIndicator stopAnimating];
         }
-        if(showDict[@"ra:latewarning"] && ![showDict[@"ra:latewarning"] isEqualToString:@""]) {
+        if(!showDict[@"ra:showname"] || (showDict[@"ra:latewarning"] && ![showDict[@"ra:latewarning"] isEqualToString:@""])) {
             [self addFadeAnimationTo:_lateWarningLabel];
             [_lateWarningLabel setHidden: NO];
         } else {
