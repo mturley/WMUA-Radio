@@ -228,13 +228,19 @@
         [self addFadeAnimationTo:_airingShowLabel];
         [self addFadeAnimationTo:_airingDJLabel];
         [self addFadeAnimationTo:_airingScheduleLabel];
-        [_airingShowLabel setText:showDict[@"ra:showname"]];
-        if([showDict[@"ra:showdj"] isKindOfClass:[NSArray class]]) {
-            [_airingDJLabel setText:[showDict[@"ra:showdj"] componentsJoinedByString:@", "]];
+        if(showDict[@"ra:showname"]) {
+            [_airingShowLabel setText:showDict[@"ra:showname"]];
+            if([showDict[@"ra:showdj"] isKindOfClass:[NSArray class]]) {
+                [_airingDJLabel setText:[showDict[@"ra:showdj"] componentsJoinedByString:@", "]];
+            } else {
+                [_airingDJLabel setText:showDict[@"ra:showdj"]];
+            }
+            [_airingScheduleLabel setText:showDict[@"ra:showschedule"]];
         } else {
-            [_airingDJLabel setText:showDict[@"ra:showdj"]];
+            [_airingShowLabel setText:@"(No Data Available)"];
+            [_airingDJLabel setText:@""];
+            [_airingScheduleLabel setText:@""];
         }
-        [_airingScheduleLabel setText:showDict[@"ra:showschedule"]];
         if(!buffering) {
             [_bufferingIndicator stopAnimating];
         }
