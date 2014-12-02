@@ -165,6 +165,7 @@
 #pragma mark UI Helper Methods
 
 - (void)updatePlayerUI {
+    [self addFadeAnimationTo:_playButton];
     if(playing) {
         // Begin a background task so that playback can continue when user leaves this view.
         bgTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
@@ -247,14 +248,19 @@
                     [_iTunesStoreButton setEnabled:NO];
                     [self setAlbumArt:nil];
                 }
+                [_currentTrackBar setNeedsDisplay];
+                [self.view setNeedsDisplay];
             }];
         }
     } withErrorHandler:^(NSError *error) {
+        [_iTunesStoreButton setEnabled:NO];
         [self setAlbumArt:nil];
         [self addFadeAnimationTo:_currentTrackNameLabel];
         [self addFadeAnimationTo:_currentTrackArtistLabel];
         [_currentTrackArtistLabel setText:@"(No Data Available)"];
         [_currentTrackNameLabel setText:@""];
+        [_currentTrackBar setNeedsDisplay];
+        [self.view setNeedsDisplay];
     }];
 }
 
@@ -276,15 +282,17 @@
 }
 
 - (IBAction)viewOnItunesStore:(id)sender {
-    NSString *trackButtonStr = [@"Track: " stringByAppendingString:currentTrack];
-    NSString *albumButtonStr = [@"Album: " stringByAppendingString:currentAlbum];
-    NSString *artistButtonStr = [@"Artist: " stringByAppendingString:currentArtist];
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:trackButtonStr, albumButtonStr, artistButtonStr, nil];
-    [actionSheet showFromTabBar:self.tabBarController.tabBar];
+    if(currentTrack && currentAlbum && currentArtist) {
+        NSString *trackButtonStr = [@"Track: " stringByAppendingString:currentTrack];
+        NSString *albumButtonStr = [@"Album: " stringByAppendingString:currentAlbum];
+        NSString *artistButtonStr = [@"Artist: " stringByAppendingString:currentArtist];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                                 delegate:self
+                                                        cancelButtonTitle:@"Cancel"
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:trackButtonStr, albumButtonStr, artistButtonStr, nil];
+        [actionSheet showFromTabBar:self.tabBarController.tabBar];
+    }
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
