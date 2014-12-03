@@ -362,7 +362,10 @@
 }
 
 - (IBAction)viewOnItunesStore:(id)sender {
-    if(currentItunesUrls && currentTrack && currentAlbum && currentArtist) {
+    if(currentItunesUrls) {
+        if(!currentTrack) currentTrack = @"";
+        if(!currentAlbum) currentAlbum = @"";
+        if(!currentArtist) currentArtist = @"";
         NSString *trackButtonStr = [@"Track: " stringByAppendingString:currentTrack];
         NSString *albumButtonStr = [@"Album: " stringByAppendingString:currentAlbum];
         NSString *artistButtonStr = [@"Artist: " stringByAppendingString:currentArtist];
