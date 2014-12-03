@@ -58,6 +58,9 @@
                   withArtSize:(NSString *)size  // size must be @"60x60", @"100x100", @"200x200", @"400x400" or @"600x600"
                   withHandler:(void(^)(NSDictionary *))handler
 {
+    if(!trackName) trackName = @"";
+    if(!albumName) albumName = @"";
+    if(!artistName) artistName = @"";
     NSString *urlRoot = @"https://itunes.apple.com/search?term=";
     NSString *tr = [trackName stringByAppendingString:@" "];
     NSString *al = [albumName stringByAppendingString:@" "];
